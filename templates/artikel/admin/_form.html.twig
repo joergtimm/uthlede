@@ -1,0 +1,43 @@
+<div class="row justify-content-center mt-3">
+    <div class="col-12 col-md-9 col-lg-7 shadow p-3 mb-5 bg-white rounded border">
+        <h2>{{ ueberschrift }}</h2>
+        <hr>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-6">
+                {{ form_row( form.titel ) }}
+            </div>
+            <div class="col-6">
+                {{ form_row( form.datum ) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_row( form.bild ) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_row( form.kurztext ) }}
+            </div>
+            <div class="col-12">
+                {{ form_row( form.haupttext ) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5">
+                {{ form_row( form.thema ) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-right">
+                <!-- Sign in button -->
+                <button class="btn btn-lg btn-primary" type="submit">
+                    {{ button }}
+                </button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>

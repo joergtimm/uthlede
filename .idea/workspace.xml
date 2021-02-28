@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85d465f4-f4bc-45eb-9ec9-1d43dc0878fa" name="Default Changelist" comment="" />
+    <list default="true" id="85d465f4-f4bc-45eb-9ec9-1d43dc0878fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/copyright/Jörg_Timm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uth_5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uth_5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/stof_doctrine_extensions.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/stof_doctrine_extensions.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -108,6 +128,19 @@
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/liip/imagine-bundle" />
       <path value="$PROJECT_DIR$/vendor/imagine/imagine" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jP4h7FHjEwOn9Qs3yA5KyTgFrN" />
@@ -116,17 +149,33 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/themen/admin" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="fr.adrienbrault.idea.symfony2plugin.ui.TwigSettingsForm" />
+    <property name="settings.editor.selected.configurable" value="copyright.filetypes.PHP" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/registration" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/config/packages" />
+      <recent name="$PROJECT_DIR$/templates/themen/admin" />
+      <recent name="$PROJECT_DIR$/templates/artikel/admin" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/templates/security" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -137,7 +186,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603692509287</updated>
-      <workItem from="1603692510323" duration="1049000" />
+      <workItem from="1603692510323" duration="15666000" />
+      <workItem from="1604718398915" duration="1176000" />
+      <workItem from="1609428126105" duration="816000" />
+      <workItem from="1614466517168" duration="5884000" />
     </task>
     <servers />
   </component>
@@ -149,9 +201,29 @@
       <screen x="0" y="23" width="1920" height="1010" />
     </state>
     <state x="718" y="433" key="#Composer/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603692520680" />
-    <state x="429" y="187" key="SettingsEditor" timestamp="1603692547706">
+    <state x="527" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604764795616">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state x="527" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1006/1920.23.2560.1417@0.23.1920.1006" timestamp="1604764795616" />
+    <state x="665" y="310" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603703789340">
       <screen x="0" y="23" width="1920" height="1010" />
     </state>
-    <state x="429" y="187" key="SettingsEditor/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603692547706" />
+    <state x="665" y="310" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603703789340" />
+    <state x="515" y="290" key="IDE.errors.dialog" timestamp="1603693781777">
+      <screen x="0" y="23" width="1920" height="1010" />
+    </state>
+    <state x="515" y="290" key="IDE.errors.dialog/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603693781777" />
+    <state x="670" y="265" key="NewPhpClassDialog" timestamp="1603709512579">
+      <screen x="0" y="23" width="1920" height="1010" />
+    </state>
+    <state x="670" y="265" key="NewPhpClassDialog/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603709512579" />
+    <state x="429" y="187" key="SettingsEditor" timestamp="1603703843355">
+      <screen x="0" y="23" width="1920" height="1010" />
+    </state>
+    <state x="429" y="187" key="SettingsEditor/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603703843355" />
+    <state x="592" y="298" width="670" height="676" key="search.everywhere.popup" timestamp="1603701871191">
+      <screen x="0" y="23" width="1920" height="1010" />
+    </state>
+    <state x="592" y="298" width="670" height="676" key="search.everywhere.popup/0.23.1920.1010/1920.23.2560.1417@0.23.1920.1010" timestamp="1603701871191" />
   </component>
 </project>

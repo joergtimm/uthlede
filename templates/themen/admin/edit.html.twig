@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artikel anlegen!{% endblock %}
+
+{% block content %}
+    <section class="section-space-bottom mt-5">
+        {{ include('artikel/admin/_form.html.twig', {
+            button: 'speichern',
+            ueberschrift: 'Thema bearbeiten',
+        }) }}
+    </section>
+{% endblock %}
