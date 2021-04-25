@@ -1,0 +1,38 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Themen{% endblock %}
+
+{% block content %}
+    <h1>Themen</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ theman.id }}</td>
+            </tr>
+            <tr>
+                <th>Titel</th>
+                <td>{{ theman.titel }}</td>
+            </tr>
+            <tr>
+                <th>Bild</th>
+                <td>{{ theman.bild }}</td>
+            </tr>
+            <tr>
+                <th>Rang</th>
+                <td>{{ theman.rang }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ theman.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_themen:index') }}">back to list</a>
+
+    <a href="{{ path('admin_themen:edit', {'id': theman.id}) }}">edit</a>
+
+    {{ include('themen/admin/_delete_form.html.twig') }}
+{% endblock %}

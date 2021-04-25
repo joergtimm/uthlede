@@ -1,0 +1,20 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}New Articel{% endblock %}
+
+{% block content %}
+    <div class="row-cols-1 justify-content-center d-flex mt-3">
+        <div class="col-lg-7 col-md-9 col-sm-11">
+            <div class="card">
+                <div class="card-title bg-black-10 p-2">
+                    <h5>Neuen Artikel hinzufügen</h5>
+                </div>
+                <div class="card-body bg-light">
+                    {{ include('articel/admin/_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('admin_artikel:index') }}">back to list</a>
+{% endblock %}

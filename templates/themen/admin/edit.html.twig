@@ -1,12 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}Artikel anlegen!{% endblock %}
+{% block title %}Edit Themen{% endblock %}
 
 {% block content %}
-    <section class="section-space-bottom mt-5">
-        {{ include('artikel/admin/_form.html.twig', {
-            button: 'speichern',
-            ueberschrift: 'Thema bearbeiten',
-        }) }}
-    </section>
+
+
+    {{ include('themen/admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_themen:index') }}">back to list</a>
+
+    {{ include('themen/admin/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,0 +1,42 @@
+<div
+        class="modal fade"
+        tabindex="-1"
+        aria-hidden="true"
+        data-modal-form-target="modal"
+>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" data-modal-form-target="modalTitel">
+                    <i class="fa fa-1x fa-spin fa-spinner"></i>
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div
+                    class="modal-body"
+                    data-modal-form-target="modalBody"
+                    data-action="submit->#submitForm"
+            >
+                {{ modalContent|default('<i class="fa fa-2x fa-spin fa-spinner"></i>') }}
+            </div>
+            <div class="modal-footer bg-white-20">
+                <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                        data-modal-form-target="caclBtn"
+                >
+                    Abbruch
+                </button>
+                <button
+                        type="button"
+                        class="btn btn-success"
+                        data-action="modal-form#submitForm"
+                        data-modal-form-target="okBtn"
+                >
+                    Speichern
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

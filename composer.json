@@ -14,32 +14,38 @@
         "gedmo/doctrine-extensions": "^3.0",
         "knplabs/knp-paginator-bundle": "^5.3",
         "knplabs/knp-time-bundle": "^1.13",
-        "league/flysystem": "^1.1",
         "liip/imagine-bundle": "^2.3",
+        "oneup/flysystem-bundle": "^4.0",
+        "select2/select2": "^4.0",
         "sensio/framework-extra-bundle": "^5.6",
         "stof/doctrine-extensions-bundle": "^1.5",
-        "symfony/asset": "5.1.*",
-        "symfony/console": "5.1.*",
-        "symfony/dotenv": "5.1.*",
+        "symfony/asset": "5.*",
+        "symfony/console": "5.*",
+        "symfony/dotenv": "5.*",
         "symfony/flex": "^1.3.1",
-        "symfony/form": "5.1.*",
-        "symfony/framework-bundle": "5.1.*",
-        "symfony/mailer": "5.1.*",
+        "symfony/form": "5.*",
+        "symfony/framework-bundle": "5.*",
+        "symfony/mailer": "5.*",
         "symfony/maker-bundle": "^1.22",
         "symfony/monolog-bundle": "^3.6",
-        "symfony/security-bundle": "5.1.*",
-        "symfony/security-csrf": "5.1.*",
-        "symfony/sendgrid-mailer": "5.1.*",
-        "symfony/validator": "5.1.*",
-        "symfony/yaml": "5.1.*",
-        "symfonycasts/verify-email-bundle": "^1.0"
+        "symfony/security-bundle": "5.*",
+        "symfony/security-csrf": "5.*",
+        "symfony/sendgrid-mailer": "5.*",
+        "symfony/ux-chartjs": "^1.2",
+        "symfony/ux-dropzone": "^1.2",
+        "symfony/validator": "5.*",
+        "symfony/webpack-encore-bundle": "^1.11",
+        "symfony/yaml": "5.*",
+        "symfonycasts/verify-email-bundle": "^1.0",
+        "tetranz/select2entity-bundle": "^3.1",
+        "twbs/bootstrap": "5.0.0-beta3"
     },
     "require-dev": {
-        "symfony/debug-bundle": "^5.1",
-        "symfony/stopwatch": "^5.1",
-        "symfony/twig-bundle": "^5.1",
-        "symfony/var-dumper": "^5.1",
-        "symfony/web-profiler-bundle": "^5.1"
+        "symfony/debug-bundle": "^5.2",
+        "symfony/stopwatch": "^5.2",
+        "symfony/twig-bundle": "^5.2",
+        "symfony/var-dumper": "^5.2",
+        "symfony/web-profiler-bundle": "^5.2"
     },
     "config": {
         "optimize-autoloader": true,
@@ -85,7 +91,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "5.1.*"
+            "require": "5.*"
         }
     }
 }

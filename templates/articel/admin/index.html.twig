@@ -1,0 +1,46 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Articel index{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h5>Articel index</h5>
+            <a class="btn btn-success" href="{{ path('admin_artikel:new') }}">Neu</a>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Bild</th>
+                    <th>Titel</th>
+                    <th>Datum</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for articel in pagination %}
+                    <tr>
+                        <td><img class="img-fluid" src="{{ articel.imagePath|imagine_filter('squared_thumbnail_mini') }}" /> </td>
+                        <td>{{ articel.titel }}</td>
+                        <td>{{ articel.datum ? articel.datum|date('Y-m-d') : '' }}</td>
+                        <td>
+                            <a class="btn btn-info" href="{{ path('admin_artikel:show', {'id': articel.id}) }}">show</a>
+                            <a class="btn btn-secondary" href="{{ path('admin_artikel:edit', {'id': articel.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer justify-content-end">
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

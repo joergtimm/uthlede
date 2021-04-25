@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Themen;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -18,6 +19,8 @@ class ThemenRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Themen::class);
     }
+
+
 
     // /**
     //  * @return Themen[] Returns an array of Themen objects

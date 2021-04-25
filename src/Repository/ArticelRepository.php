@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Articel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,33 @@ class ArticelRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Articel::class);
+    }
+
+    /**
+     * //
+     * @param string|null $value
+     * @return QueryBuilder
+     */
+
+    public function findByQueryBuilder(?string $value): QueryBuilder
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.kurztext LIKE :val OR a.titel LIKE :val OR a.haupttext LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('a.createAt', 'DESC')
+            ;
+    }
+
+    /**
+     * @param $value
+     * @return QueryBuilder
+     */
+    public function listQueryBuilder($value) :QueryBuilder
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.titel LIKE :val OR a.kurztext LIKE :val OR a.haupttext LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('a.datum', 'DESC');
     }
 
     // /**
