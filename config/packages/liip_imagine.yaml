@@ -28,6 +28,13 @@ liip_imagine:
                 scale:
                     dim: [ 500, 500 ]
 
+        squared_thumbnail_min_ob:
+            filters:
+                thumbnail:
+                    size:          [220, 220]
+                    mode:          outbound
+                    allow_upscale: true
+
         squared_thumbnail_md_ob:
             filters:
                 thumbnail:

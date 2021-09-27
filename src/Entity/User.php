@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -45,6 +47,16 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ArtikelMitwirkungen::class, mappedBy="user")
+     */
+    private $artikelMitwirkungens;
+
+    public function __construct()
+    {
+        $this->artikelMitwirkungens = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -142,4 +154,35 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|ArtikelMitwirkungen[]
+     */
+    public function getArtikelMitwirkungens(): Collection
+    {
+        return $this->artikelMitwirkungens;
+    }
+
+    public function addArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
+    {
+        if (!$this->artikelMitwirkungens->contains($artikelMitwirkungen)) {
+            $this->artikelMitwirkungens[] = $artikelMitwirkungen;
+            $artikelMitwirkungen->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
+    {
+        if ($this->artikelMitwirkungens->removeElement($artikelMitwirkungen)) {
+            // set the owning side to null (unless already changed)
+            if ($artikelMitwirkungen->getUser() === $this) {
+                $artikelMitwirkungen->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

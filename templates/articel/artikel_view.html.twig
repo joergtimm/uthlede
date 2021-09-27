@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+<article class="blog-post">
+    <h2 class="blog-post-title">{{ artikel.titel }}</h2>
+    <p class="blog-post-meta">{{ artikel.datum|date('d.m.Y') }} <a href="#"><i class="fa fa-user me-1"></i> Otto Baur</a></p>
+
+    {{ artikel.haupttext|raw }}
+</article><!-- /.blog-post -->
+{% endblock %}

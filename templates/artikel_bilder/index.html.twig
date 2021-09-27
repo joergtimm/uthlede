@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArtikelBilder index{% endblock %}
+
+{% block body %}
+    <h1>ArtikelBilder index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Filename</th>
+                <th>CreateAt</th>
+                <th>Text</th>
+                <th>Position</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artikel_bilder in artikel_bilders %}
+            <tr>
+                <td>{{ artikel_bilder.id }}</td>
+                <td>{{ artikel_bilder.filename }}</td>
+                <td>{{ artikel_bilder.createAt ? artikel_bilder.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ artikel_bilder.text }}</td>
+                <td>{{ artikel_bilder.position }}</td>
+                <td>
+                    <a href="{{ path('artikel_bilder_show', {'id': artikel_bilder.id}) }}">show</a>
+                    <a href="{{ path('artikel_bilder_edit', {'id': artikel_bilder.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('artikel_bilder_new') }}">Create new</a>
+{% endblock %}

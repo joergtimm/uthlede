@@ -25,9 +25,6 @@ class ArtikelFormType extends AbstractType
         ];
         $builder
             ->add('titel')
-            ->add('kurztext', TextareaType::class, [
-                'attr' => ['rows' => 6]
-            ])
             ->add('haupttext', TextareaType::class, [
                 'attr' => ['rows' => 9]
             ])

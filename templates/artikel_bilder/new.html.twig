@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ArtikelBilder{% endblock %}
+
+{% block body %}
+    <h1>Create new ArtikelBilder</h1>
+
+    {{ include('artikel_bilder/_form.html.twig') }}
+
+    <a href="{{ path('artikel_bilder_index') }}">back to list</a>
+{% endblock %}

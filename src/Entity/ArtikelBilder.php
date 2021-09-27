@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ArtikelBilderRepository;
+use App\Service\UploaderHelper;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,6 +39,11 @@ class ArtikelBilder
      */
     private $artikel;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $position;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +59,11 @@ class ArtikelBilder
         $this->filename = $filename;
 
         return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return '/uploads/'.UploaderHelper::ARTIKEL_IMAGE.'/'.$this->getFilename();
     }
 
     public function getCreateAt(): ?\DateTimeInterface
@@ -87,6 +98,18 @@ class ArtikelBilder
     public function setArtikel(?Articel $artikel): self
     {
         $this->artikel = $artikel;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

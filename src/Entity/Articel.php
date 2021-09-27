@@ -70,8 +70,19 @@ class Articel
 
     /**
      * @ORM\OneToMany(targetEntity=ArtikelBilder::class, mappedBy="artikel", orphanRemoval=true)
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $artikelBilders;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $top;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $extra = [];
 
     public function __construct()
     {
@@ -221,6 +232,40 @@ class Articel
             if ($artikelBilder->getArtikel() === $this) {
                 $artikelBilder->setArtikel(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getTop(): ?bool
+    {
+        return $this->top;
+    }
+
+    public function setTop(?bool $top): self
+    {
+        $this->top = $top;
+
+        return $this;
+    }
+
+    public function getExtra(): ?array
+    {
+        return $this->extra;
+    }
+
+    public function setExtra(?array $extra): self
+    {
+        $this->extra = $extra;
+
+        return $this;
+    }
+
+    public function addExtra(?array $extra): self
+    {
+        $extras = $this->getExtra();
+        if (!in_array($extra, $extras)){
+            array_push($extras, $extra);
         }
 
         return $this;

@@ -1,8 +1,44 @@
 @import '~bootstrap';
 @import "layouts/admindashboard";
 @import "layouts/swagger";
+@import "~bootstrap";
+@import '~font-awesome';
+@import "~animate.css";
+@import "~dropzone/dist/dropzone.css";
 
 .form-group {
   margin-bottom: 0.8em;
 }
 
+.blog-header-logo {
+  font-size: 4.0rem;
+  font-weight: 600;
+}
+
+a {
+  color: #557217!important;
+  text-decoration: none;
+}
+
+.link-main {
+  color: #557217!important;
+}
+
+a:hover {
+  color: #A3BB1B !important;
+}
+
+.link-secondary {
+  color: #557217!important;
+}
+.main-storry {
+  background-color: #A3BB1B !important;
+}
+
+.news-card {
+  border: #557217 solid 1px;
+  padding: .2rem;
+}
+.card-title {
+  color: #557217!important;
+}

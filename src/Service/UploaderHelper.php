@@ -45,6 +45,7 @@ class UploaderHelper
         return $newFilename;
     }
 
+
     public function uploadThemenImage(UploadedFile $uploadedFile): string
     {
 

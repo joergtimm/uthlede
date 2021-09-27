@@ -29,7 +29,7 @@ class ArticelRepository extends ServiceEntityRepository
     public function findByQueryBuilder(?string $value): QueryBuilder
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.kurztext LIKE :val OR a.titel LIKE :val OR a.haupttext LIKE :val')
+            ->andWhere('a.haupttext LIKE :val OR a.titel LIKE :val')
             ->setParameter('val', '%'.$value.'%')
             ->orderBy('a.createAt', 'DESC')
             ;
@@ -39,12 +39,13 @@ class ArticelRepository extends ServiceEntityRepository
      * @param $value
      * @return QueryBuilder
      */
-    public function listQueryBuilder($value) :QueryBuilder
+    public function listQueryBuilder( $value ): QueryBuilder
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.titel LIKE :val OR a.kurztext LIKE :val OR a.haupttext LIKE :val')
+            ->andWhere('a.titel LIKE :val OR a.haupttext LIKE :val')
             ->setParameter('val', '%'.$value.'%')
-            ->orderBy('a.datum', 'DESC');
+            ->orderBy('a.datum', 'DESC')
+            ;
     }
 
     // /**

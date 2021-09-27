@@ -6,6 +6,7 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+import './turbo/turbo-helper';
 
 $("#menu-toggle").click(function(e) {
     e.preventDefault();

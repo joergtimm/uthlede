@@ -20,18 +20,18 @@
 
 </head>
 
-<body>
+<body data-turbo="false">
 
 <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Start Bootstrap </div>
+        <div class="sidebar-heading"><a href="{{ path('app_home') }}">Uthlede.de</a> </div>
         <div class="list-group list-group-flush">
             <a href="{{ path('admin:dashboard') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
             <a href="{{ path('admin_themen:index') }}" class="list-group-item list-group-item-action bg-light">Themen</a>
             <a href="{{ path('admin_artikel:index') }}" class="list-group-item list-group-item-action bg-light">Artikel</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+            <a href="{{ path('user_index') }}" class="list-group-item list-group-item-action bg-light">User</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
         </div>
@@ -42,7 +42,7 @@
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+            <button class="btn btn-primary" id="menu-toggle">T</button>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

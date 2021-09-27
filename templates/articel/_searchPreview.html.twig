@@ -1,0 +1,22 @@
+<div class="list-group">
+    {% for item in items %}
+        <a
+                href="{{ path('app_artikel_view', { slug: item.slug }) }}"
+                role="option"
+                class="list-group-item list-group-item-action"
+        >
+            <span class="px-1 w-100">{{ item.titel }}</span>
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <img
+                            alt="bild-{{ item.id }}"
+                            src="{{ item.ImagePath|imagine_filter('squared_thumbnail_mini') }}"
+                            class="rounded"
+                    >
+                </div>
+            </div>
+        </a>
+    {% else %}
+        <div class="list-group-item" role="option" aria-disabled="true">No results found!</div>
+    {% endfor %}
+</div>

@@ -21,6 +21,16 @@ class ThemenRepository extends ServiceEntityRepository
     }
 
 
+    public function listThemen()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.titel, COUNT(a.id) as artikel')
+            ->leftJoin('t.articels', 'a')
+            ->groupBy('a.thema')
+            ->getQuery()
+            ->getResult();
+    }
+
 
     // /**
     //  * @return Themen[] Returns an array of Themen objects
