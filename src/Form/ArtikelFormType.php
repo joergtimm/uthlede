@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Articel;
 use App\Entity\Themen;
+use App\Entity\User;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -25,9 +27,7 @@ class ArtikelFormType extends AbstractType
         ];
         $builder
             ->add('titel')
-            ->add('haupttext', TextareaType::class, [
-                'attr' => ['rows' => 9]
-            ])
+            ->add('haupttext', CKEditorType::class)
             ->add('bild', FileType::class, [
                 'mapped' => false,
                 'required' => false,
@@ -43,6 +43,10 @@ class ArtikelFormType extends AbstractType
             ->add('datum', DateType::class, [
                 'widget' => 'single_text',
                 'placeholder' => 'Bitte ein Bild auswählen',
+            ])
+            ->add('author', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'username'
             ])
 
         ;

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Blog Liste
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_artikel_view', { slug: artikel.slug }) }}" class="w-100">
+                    <h5 class="card-title">{{ artikel.titel }}</h5>
+                </a>
+                <p class="card-text d-flex justify-start">
+                    <small class="text-muted mx-1"><i class="fa fa-calendar-o me-2"></i>{{ artikel.datum|date('d.m.Y') }}</small>
+                    <small class="text-muted mx-1"><i class="fa fa-user me-2"></i>Otto Baur</small>
+                    <small class="text-muted mx-1"><i class="fa fa-folder me-2"></i>Dorfleben</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

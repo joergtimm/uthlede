@@ -5,26 +5,20 @@ namespace App\Controller;
 use App\Entity\Articel;
 use App\Entity\ArtikelBilder;
 use App\Entity\Themen;
-use App\Form\ArticelType;
 use App\Form\ArtikelFormType;
 use App\Repository\ArticelRepository;
 use App\Repository\ThemenRepository;
 use App\Service\UploaderHelper;
-use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Gedmo\Sluggable\Util\Urlizer;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\Validator\Constraints\Uuid;
 
 /**
  * @Route("/admin/artikel", name="admin_artikel:")
@@ -89,6 +83,7 @@ class AdminArticelController extends AbstractController
             $artikel
                 ->setHaupttext($value['text'])
                 ->setTitel($value['titel'])
+                ->setOldId($value['id'])
                 ->setSlug($slugger->slug($value['titel']))
             ;
 
@@ -116,8 +111,6 @@ class AdminArticelController extends AbstractController
                 }
 
             }
-
-
 
             $em->persist($artikel);
             $em->flush();

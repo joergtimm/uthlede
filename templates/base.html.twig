@@ -21,15 +21,15 @@
     <body>
     {% block body %}
 
-        <div class="container bg-light">
+        <div class="container">
             <header class="blog-header py-3">
-                <div class="row flex-nowrap justify-content-between align-items-center bg-light">
-                    <div class="col-4 pt-1">
+                <div class="row flex-nowrap justify-content-between align-items-center bg-light p-2">
+                    <div class="col-auto pt-1">
                         <a class="link-secondary" href="{{ path('app_home') }}" aria-label="Logo">
                             <img src="{{ asset('/build/images/wappen_uthlede.png')|imagine_filter('squared_thumbnail_mini') }}" alt="wappen-von-uthlede"/>
                         </a>
                     </div>
-                    <div class="col-4 text-center">
+                    <div class="d-none d-sm-none d-md-block col-md-4 col-lg-4 text-center">
                         <a class="blog-header-logo text-dark" href="{{ path('app_home') }}">UTHLEDE.DE</a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
@@ -44,15 +44,29 @@
                 </div>
             </header>
 
-            <div class="nav-scroller py-1 mb-2">
-                <nav class="nav d-flex justify-content-between">
-                    <a class="p-2 link-secondary" href="#">Home</a>
-                    <a class="p-2 link-secondary" href="#">Das Dorf</a>
-                    <a class="p-2 link-secondary" href="#">Die Vereine</a>
-                    <a class="p-2 link-secondary" href="#">Historisch</a>
-                    <a class="p-2 link-secondary" href="#">Impressum</a>
-                </nav>
-            </div>
+            <nav class="navbar navbar-expand-md navbar-light mb-3">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_home') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Das Dorf</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Vereine</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Historisch</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
         <main class="container">
     {% block content %}
@@ -69,20 +83,24 @@
 
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-xs-12 col-sm-6 col-md-8">
                     <div class="row">
                         {% for artikel in artikels %}
                             <div class="card news-card mb-3">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ artikel.imagePath|imagine_filter('squared_thumbnail_min_ob') }}" class="img-fluid" alt="...">
+                                        <a href="{{ path('app_artikel_view', { slug: artikel.slug }) }}">
+                                            <img src="{{ artikel.imagePath|imagine_filter('squared_thumbnail_min_ob') }}" class="img-fluid" alt="...">
+                                        </a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
+                                            <a href="{{ path('app_artikel_view', { slug: artikel.slug }) }}">
                                             <h5 class="card-title">{{ artikel.titel }}</h5>
+                                            </a>
                                             <p class="card-text d-flex justify-start">
-                                                <small class="text-muted mx-1"><i class="fa fa-calendar me-1"></i>{{ artikel.datum|date('d.m.Y') }}</small>
-                                                <small class="text-muted mx-1"><i class="fa fa-user me-1"></i>Otto Baur</small>
+                                                <small class="text-muted mx-1"><i class="fa fa-calendar-o me-1"></i>{{ artikel.datum|date('d.m.Y') }}</small>
+                                                <small class="text-muted mx-1"><i class="fa fa-user me-1"></i>Otto</small>
                                                 <small class="text-muted mx-1"><i class="fa fa-folder me-1"></i>Dorfleben</small>
                                             </p>
                                             <p class="card-text">{{ artikel.haupttext|truncate(100)|raw }}</p>
@@ -99,7 +117,30 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="d-none d-md-none d-lg-block p-4 mb-3 bg-light">
+                        <div id="wcom-74c70c48f1628b21f010253fee82e509" class="wcom-default w300x250"
+                             style="border: 0px; background-color: transparent; border-radius: 5px; color: rgb(85, 114, 23);">
+                            <link rel="stylesheet" href="//cs3.wettercomassets.com/woys/5/css/w.css" media="all">
+                            <div class="wcom-city">
+                                <a style="color: rgb(85, 114, 23);"
+                                      href="https://www.wetter.com/deutschland/hagen-im-bremischen/uthlede/DE0010808.html"
+                                      target="_blank" rel="nofollow" aria-label="Wetter Berlin"
+                                      title="Wetter Uthlede"
+                                >
+                                    Wetter Uthlede
+                                </a>
+                            </div>
+                            <div id="wcom-74c70c48f1628b21f010253fee82e509-weather"></div>
+                            <script type="text/javascript" src="//cs3.wettercomassets.com/woys/5/js/w.js"></script>
+                            <script type="text/javascript">_wcomWidget({
+                                    id: 'wcom-74c70c48f1628b21f010253fee82e509',
+                                    location: 'DE0010808',
+                                    format: '300x250',
+                                    type: 'summary'
+                                });</script>
+                        </div>
+                    </div>
                     <div class="p-4 mb-3 bg-light rounded">
                         <form>
                             <div
@@ -134,7 +175,7 @@
                                 <a href="#">
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold link-main">{{ thema.titel }}</div>
+                                            <div class="fw-bold link-main overflow-hidden">{{ thema.titel }}</div>
                                         </div>
                                         <span class="badge bg-success rounded-pill">{{ thema.artikel }}</span>
                                     </li>
@@ -159,7 +200,7 @@
         {% endblock %}
         </main><!-- /.container -->
 
-        <footer class="blog-footer container bg-green text-light">
+        <footer class="blog-footer container bg-green text-light my-3">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4 p-2">
                     <h4>Uthlede.de</h4>

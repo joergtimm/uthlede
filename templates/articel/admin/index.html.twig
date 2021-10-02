@@ -6,8 +6,8 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <h5>Articel index</h5>
-            <a class="btn btn-success" href="{{ path('admin_artikel:import') }}">Import</a>
-            <a class="btn btn-success" href="{{ path('admin_artikel:new') }}">Neu</a>
+            <a class="btn btn-outline-success" href="{{ path('admin_artikel:import') }}">Import</a>
+            <a class="btn btn-outline-success" href="{{ path('admin_artikel:new') }}">Neu</a>
         </div>
         <div class="card-body">
             <table class="table">
@@ -26,8 +26,8 @@
                         <td>{{ articel.titel }}</td>
                         <td>{{ articel.datum ? articel.datum|date('Y-m-d') : '' }}</td>
                         <td>
-                            <a class="btn btn-info" href="{{ path('admin_artikel:show', {'id': articel.id}) }}">show</a>
-                            <a class="btn btn-secondary" href="{{ path('admin_artikel:edit', {'id': articel.id}) }}">edit</a>
+                            <a class="btn btn-outline-info" href="{{ path('admin_artikel:show', {'id': articel.id}) }}">show</a>
+                            <a class="btn btn-outline-warning" href="{{ path('admin_artikel:edit', {'id': articel.id}) }}">edit</a>
                         </td>
                     </tr>
                 {% else %}

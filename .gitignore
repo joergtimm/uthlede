@@ -19,3 +19,6 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+/public/media/
+/public/old/
+/public/uploads/

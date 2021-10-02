@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Articel;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,8 +23,11 @@ class ArticelType extends AbstractType
 
         $builder
             ->add('titel')
-            ->add('kurztext')
-            ->add('haupttext')
+            ->add('haupttext', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                ),
+            ))
             ->add('bild', FileType::class, [
                 'mapped' => false,
                 'required' => false,

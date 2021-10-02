@@ -2,10 +2,50 @@
 
 
 {% block content %}
-<article class="blog-post">
+    <hr>
+<article class="blog-post mb-3">
     <h2 class="blog-post-title">{{ artikel.titel }}</h2>
     <p class="blog-post-meta">{{ artikel.datum|date('d.m.Y') }} <a href="#"><i class="fa fa-user me-1"></i> Otto Baur</a></p>
 
-    {{ artikel.haupttext|raw }}
+    <div class="card">
+        <div class="card-body d-flex mb-0">
+            <div class="m-3">
+                <img src="{{ artikel.imagePath|imagine_filter('squared_thumbnail_md') }}" class="img-thumbnail float-start " style="margin: .8rem;" alt="{{ artikel.id }}-bild">
+
+            {{ artikel.haupttext|raw }}
+            </div>
+        </div>
+        {% if bilder|length >= 1 %}
+        <div class="card-body mt-0">
+            <div class="row" data-controller="lightbox">
+                {% for bild in bilder %}
+                <a class="col-sm-4 col-md-3 col-lg-2 p-1" href="{{ bild.imagePath }}">
+                    <img src="{{ bild.imagePath|imagine_filter('actress_thumbnail_md') }}" class="img-fluid m-1" alt="bild-thb-{{ bild.id }}-{{ bild.artikel.titel }}">
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if comments|length >= 1 %}
+            <div class="card-body mt-0">
+                <div class="row">
+                    {% for comment in comment %}
+                        <div class="col-12">
+                            {{ comment.text|raw }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="card-footer">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {{ render(controller( 'App\\Controller\\CommentsController::new')) }}
+            {% else %}
+                <p><strong>Du musst eingelogt sein um einen Kommentar zu schreiben</strong></p>
+                <a href="{{ path('app_login') }}" class="btn">login</a>
+            {% endif %}
+        </div>
+    </div>
+
 </article><!-- /.blog-post -->
 {% endblock %}

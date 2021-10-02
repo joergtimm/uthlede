@@ -53,9 +53,21 @@ class User implements UserInterface
      */
     private $artikelMitwirkungens;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Articel::class, mappedBy="author")
+     */
+    private $articels;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="author")
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->artikelMitwirkungens = new ArrayCollection();
+        $this->articels = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +191,66 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($artikelMitwirkungen->getUser() === $this) {
                 $artikelMitwirkungen->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Articel[]
+     */
+    public function getArticels(): Collection
+    {
+        return $this->articels;
+    }
+
+    public function addArticel(Articel $articel): self
+    {
+        if (!$this->articels->contains($articel)) {
+            $this->articels[] = $articel;
+            $articel->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticel(Articel $articel): self
+    {
+        if ($this->articels->removeElement($articel)) {
+            // set the owning side to null (unless already changed)
+            if ($articel->getAuthor() === $this) {
+                $articel->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getAuthor() === $this) {
+                $comment->setAuthor(null);
             }
         }
 

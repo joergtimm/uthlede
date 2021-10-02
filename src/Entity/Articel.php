@@ -84,9 +84,25 @@ class Articel
      */
     private $extra = [];
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $oldId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articels")
+     */
+    private $author;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="articel")
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->artikelBilders = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -266,6 +282,60 @@ class Articel
         $extras = $this->getExtra();
         if (!in_array($extra, $extras)){
             array_push($extras, $extra);
+        }
+
+        return $this;
+    }
+
+    public function getOldId(): ?int
+    {
+        return $this->oldId;
+    }
+
+    public function setOldId(?int $oldId): self
+    {
+        $this->oldId = $oldId;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setArticel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getArticel() === $this) {
+                $comment->setArticel(null);
+            }
         }
 
         return $this;

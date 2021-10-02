@@ -50,8 +50,13 @@ class ArtikelController extends AbstractController
      */
     public function view( Articel $articel ): Response
     {
+        $bilder = $articel->getArtikelBilders();
+        $comments = $articel->getComments();
+
         return $this->render('articel/artikel_view.html.twig', [
-            'artikel' => $articel
+            'artikel' => $articel,
+            'bilder' => $bilder,
+            'comments' => $comments
         ]);
     }
 }

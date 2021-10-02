@@ -1,0 +1,15 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+fos_ck_editor:
+    default_config: my_config
+    base_path: "build/ckeditor"
+    js_path:   "build/ckeditor/ckeditor.js"
+    autoload: true
+
+    configs:
+        my_config:
+            toolbar: [ [ "Bold", "-", "Italic", "Underline", "-", "Cut", "Copy", "Paste" ] "/", [ "Maximize" ] "/", [ "Font-style" ] ]
+            uiColor: "#ffffff"
+
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
