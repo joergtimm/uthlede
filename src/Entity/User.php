@@ -80,7 +80,7 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getUserIdentifier(): string
     {
         return (string) $this->username;
     }
@@ -257,4 +257,8 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
 }

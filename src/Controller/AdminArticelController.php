@@ -9,6 +9,8 @@ use App\Form\ArtikelFormType;
 use App\Repository\ArticelRepository;
 use App\Repository\ThemenRepository;
 use App\Service\UploaderHelper;
+use DateTime;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Knp\Component\Pager\PaginatorInterface;
@@ -72,7 +74,7 @@ class AdminArticelController extends AbstractController
 
 
             $artikel
-                ->setCreateAt(new \DateTimeImmutable('now'));
+                ->setCreateAt(new DateTimeImmutable('now'));
 
             $datum = date_create(($value['datum']));
 
@@ -135,7 +137,7 @@ class AdminArticelController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var Articel $articel */
             $articel = $form->getData();
-            $articel->setCreateAt(new \DateTime());
+            $articel->setCreateAt(new DateTime());
 
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['bild']->getData();
@@ -223,7 +225,7 @@ class AdminArticelController extends AbstractController
 
             $image = new ArtikelBilder();
             $image
-                ->setCreateAt(new \DateTimeImmutable())
+                ->setCreateAt(new DateTimeImmutable())
                 ->setArtikel($articel)
                 ->setFilename($uploaderHelper->uploadArtikelImage($uploadedFile));
 

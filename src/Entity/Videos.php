@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\VideosRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -95,12 +96,12 @@ class Videos
         return $this;
     }
 
-    public function getEinstellungAt(): ?\DateTimeInterface
+    public function getEinstellungAt(): ?DateTimeInterface
     {
         return $this->einstellungAt;
     }
 
-    public function setEinstellungAt(\DateTimeInterface $einstellungAt): self
+    public function setEinstellungAt(DateTimeInterface $einstellungAt): self
     {
         $this->einstellungAt = $einstellungAt;
 

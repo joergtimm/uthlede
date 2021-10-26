@@ -5,6 +5,7 @@ namespace App\Command;
 use App\Entity\Articel;
 use App\Entity\ArtikelBilder;
 use App\Repository\ArticelRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -69,7 +70,7 @@ class ImportArtikelBilderCommand extends Command
                         $bild = new ArtikelBilder();
                         $bild
                             ->setArtikel($artikel)
-                            ->setCreateAt(new \DateTimeImmutable('now'))
+                            ->setCreateAt(new DateTimeImmutable('now'))
                             ->setFilename($newFile . '.jpg');
 
                         $this->em->persist($bild);

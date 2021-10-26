@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PersonenRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -132,36 +133,36 @@ class Personen
         return $this;
     }
 
-    public function getGeboren(): ?\DateTimeInterface
+    public function getGeboren(): ?DateTimeInterface
     {
         return $this->geboren;
     }
 
-    public function setGeboren(?\DateTimeInterface $geboren): self
+    public function setGeboren(?DateTimeInterface $geboren): self
     {
         $this->geboren = $geboren;
 
         return $this;
     }
 
-    public function getWohnhaftAb(): ?\DateTimeInterface
+    public function getWohnhaftAb(): ?DateTimeInterface
     {
         return $this->wohnhaftAb;
     }
 
-    public function setWohnhaftAb(?\DateTimeInterface $wohnhaftAb): self
+    public function setWohnhaftAb(?DateTimeInterface $wohnhaftAb): self
     {
         $this->wohnhaftAb = $wohnhaftAb;
 
         return $this;
     }
 
-    public function getWohnhaftBis(): ?\DateTimeInterface
+    public function getWohnhaftBis(): ?DateTimeInterface
     {
         return $this->wohnhaftBis;
     }
 
-    public function setWohnhaftBis(?\DateTimeInterface $wohnhaftBis): self
+    public function setWohnhaftBis(?DateTimeInterface $wohnhaftBis): self
     {
         $this->wohnhaftBis = $wohnhaftBis;
 

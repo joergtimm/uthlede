@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ArticelRepository;
 use App\Service\UploaderHelper;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -122,12 +123,12 @@ class Articel
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getCreateAt(): ?DateTimeInterface
     {
         return $this->createAt;
     }
 
-    public function setCreateAt(\DateTimeInterface $createAt): self
+    public function setCreateAt(DateTimeInterface $createAt): self
     {
         $this->createAt = $createAt;
 
@@ -187,12 +188,12 @@ class Articel
         return $this;
     }
 
-    public function getDatum(): ?\DateTimeInterface
+    public function getDatum(): ?DateTimeInterface
     {
         return $this->datum;
     }
 
-    public function setDatum(?\DateTimeInterface $datum): self
+    public function setDatum(?DateTimeInterface $datum): self
     {
         $this->datum = $datum;
 

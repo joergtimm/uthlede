@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BilderRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,12 +50,12 @@ class Bilder
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getCreateAt(): ?DateTimeInterface
     {
         return $this->createAt;
     }
 
-    public function setCreateAt(\DateTimeInterface $createAt): self
+    public function setCreateAt(DateTimeInterface $createAt): self
     {
         $this->createAt = $createAt;
 

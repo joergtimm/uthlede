@@ -1,11 +1,10 @@
-<!doctype html>
-<html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{% block title %}Uthlede.de! | offizielle Seite des Ortes Uthlede{% endblock %}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="de" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jörg Timm">
         <!-- Favicon -->
         {% block style %}
             {{ encore_entry_link_tags('app') }}
@@ -14,7 +13,8 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-        <meta charset="UTF-8">
+
+    <title>{% block title %}Uthlede!{% endblock %}</title>
 
 
     </head>
