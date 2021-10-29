@@ -1,0 +1,11 @@
+2021/10/26 23:59:08 [20419] rsync: [client] failed to open exclude file exclude-file.txt: No such file or directory (2)
+2021/10/26 23:59:08 [20419] rsync error: error in file IO (code 11) at exclude.c(1188) [client=3.2.3]
+2021/10/27 00:00:59 [20537] rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+2021/10/27 00:00:59 [20537] sent 0 bytes  received 0 bytes  total size 0
+2021/10/27 00:00:59 [20537] rsync error: error in rsync protocol data stream (code 12) at io.c(228) [sender=3.2.3]
+2021/10/27 00:20:02 [22069] rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+2021/10/27 00:20:02 [22069] sent 0 bytes  received 0 bytes  total size 0
+2021/10/27 00:20:02 [22069] rsync error: error in rsync protocol data stream (code 12) at io.c(228) [sender=3.2.3]
+2021/10/28 20:49:41 [16735] rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+2021/10/28 20:49:41 [16735] sent 0 bytes  received 0 bytes  total size 0
+2021/10/28 20:49:41 [16735] rsync error: error in rsync protocol data stream (code 12) at io.c(228) [sender=3.2.3]

@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Articel;
 use App\Entity\Comments;
+use App\Form\CommentsAdminType;
 use App\Form\CommentsType;
+use App\Repository\ArticelRepository;
 use App\Repository\CommentsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +39,12 @@ class CommentsController extends AbstractController
         ]);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $comment->setCreateAt( new \DateTimeImmutable('now') );
+
+            $comment->setAuthor($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
@@ -65,7 +73,7 @@ class CommentsController extends AbstractController
      */
     public function edit(Request $request, Comments $comment): Response
     {
-        $form = $this->createForm(CommentsType::class, $comment, [
+        $form = $this->createForm(CommentsAdminType::class, $comment, [
             'action' => $this->generateUrl('comments_edit', [
                 'id' => $comment->getId()
             ])
@@ -78,7 +86,7 @@ class CommentsController extends AbstractController
             return $this->redirectToRoute('comments_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('comments/_form.html.twig', [
+        return $this->renderForm('comments/edit.html.twig', [
             'comment' => $comment,
             'form' => $form,
         ]);

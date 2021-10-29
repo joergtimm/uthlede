@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Articel;
 use App\Entity\ArtikelBilder;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,22 +20,22 @@ class ArtikelBilderRepository extends ServiceEntityRepository
         parent::__construct($registry, ArtikelBilder::class);
     }
 
-    // /**
-    //  * @return ArtikelBilder[] Returns an array of ArtikelBilder objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return ArtikelBilder[] Returns an array of ArtikelBilder objects
+    */
+
+    public function findByArtikel( Articel $articel): array
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('a.artikel = :art')
+            ->setParameter('art', $articel)
+            ->orderBy('a.position', 'ASC')
+            ->setMaxResults(100)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?ArtikelBilder

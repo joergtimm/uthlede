@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PersonenRepository;
+use App\Service\UploaderHelper;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -67,6 +68,11 @@ class Personen
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $foto;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="personen", cascade={"persist", "remove"})
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -189,6 +195,25 @@ class Personen
     public function setFoto(?string $foto): self
     {
         $this->foto = $foto;
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+
+        return '/uploads/'.UploaderHelper::PERSON_IMAGE.'/'.$this->getFoto();
+
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

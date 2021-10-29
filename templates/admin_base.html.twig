@@ -28,11 +28,30 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading"><a href="{{ path('app_home') }}">Uthlede.de</a> </div>
         <div class="list-group list-group-flush">
-            <a href="{{ path('admin:dashboard') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-            <a href="{{ path('admin_themen:index') }}" class="list-group-item list-group-item-action bg-light">Themen</a>
-            <a href="{{ path('admin_artikel:index') }}" class="list-group-item list-group-item-action bg-light">Artikel</a>
-            <a href="{{ path('user_index') }}" class="list-group-item list-group-item-action bg-light">User</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+            <a href="{{ path('admin:dashboard') }}" class="list-group-item list-group-item-action bg-light">
+                <i class="fa fa-tachometer me-2"></i>
+                Dashboard
+            </a>
+            <a href="{{ path('admin_themen:index') }}" class="list-group-item list-group-item-action bg-light">
+                <i class="fa fa-tags me-2"></i>
+                Themen
+            </a>
+            <a href="{{ path('admin_artikel:index') }}" class="list-group-item list-group-item-action bg-light">
+                <i class="fa fa-file-o me-2"></i>
+                Artikel
+            </a>
+            <a href="{{ path('comments_index') }}" class="list-group-item list-group-item-action bg-light">
+                <i class="fa fa-comment me-2"></i>
+                Kommentare
+            </a>
+            <a href="{{ path('user_index') }}" class="list-group-item list-group-item-action bg-light">
+                <i class="fa fa-user me-2"></i>
+                User
+            </a>
+            <a href="{{ path('personen_index') }}" class="list-group-item list-group-item-action bg-light">
+                <i class="fa fa-users me-2"></i>
+                Personen
+            </a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
         </div>
     </div>
@@ -52,6 +71,34 @@
         {% block content %}
 
             <h1 class="mt-4">Dashboard</h1>
+
+            <div class="row">
+                <div class="col-4">
+                    <h5>Neue Kommentare</h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Datum</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Artikel</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for kommentar in kommentare %}
+                        <tr>
+                            <th scope="row">{{ kommentar.createAt|date('d.m.Y') }}</th>
+                            <td>{{ kommentar.author.username }}</td>
+                            <td>{{ kommentar.articel.titel }}</td>
+                            <td><a href="{{ path('comments_edit', { id: kommentar.id }) }}">
+                                    <i class="fa fa-pencil me-2"></i>
+                                </a> </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
         {% endblock %}
         </div>

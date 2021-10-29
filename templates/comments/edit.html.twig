@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
-{% block title %}Edit Comments{% endblock %}
+{% block title %}Kommentar index{% endblock %}
 
-{% block body %}
-    <h1>Edit Comments</h1>
+{% block content %}
+    <h1>Kommentar bearbeiten</h1>
 
     {{ include('comments/_form.html.twig', {'button_label': 'Update'}) }}
 

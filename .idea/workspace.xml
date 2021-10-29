@@ -2,21 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85d465f4-f4bc-45eb-9ec9-1d43dc0878fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.deploy/.env.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/.fancy-bash-promt.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/.workdir.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/composer.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/db_to_stage.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/env.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/filesync.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/filesync_2.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/fmessage.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/git.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/local_db_to_stage.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/parse-yml.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/pull-media-from-backup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/reset_stages.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/start_mercure.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/test.bash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/test.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.deploy/yarn.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exclude-backup-file.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exclude-file.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exclude-to-stage-file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uth_5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uth_5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/ImportArtikelBilderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ImportArtikelBilderCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminArticelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminArticelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Articel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Articel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ArtikelBilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ArtikelBilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personen.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Videos.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Videos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +75,9 @@
     <setting file="file://$PROJECT_DIR$/vendor/twig/extensions/lib/Twig/Extensions/Grammar/Tag.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle/src/Twig/CKEditorExtension.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Form/ArtikelFormType.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.deploy/test.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.deploy/filesync.sh" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/node_modules/ckeditor/package.json" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Entity/Articel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -70,7 +86,9 @@
     <setting file="file://$PROJECT_DIR$/templates/articel/artikel_view.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/gedmo/doctrine-extensions/example/app/Entity/Category.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/assets/styles/app.scss" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/deploy.sh" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/articel/admin/_form.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/exclude-backup-file.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/node_modules/lightgallery.js/src/sass/lightgallery.scss" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/webpack.config.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/comments/_form.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -214,7 +232,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jP4h7FHjEwOn9Qs3yA5KyTgFrN" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectStartupLocalConfiguration">
@@ -238,7 +256,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/articel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -256,11 +274,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Form" />
+      <recent name="$PROJECT_DIR$/templates/articel/admin" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/.deploy" />
       <recent name="$PROJECT_DIR$/templates/articel" />
-      <recent name="$PROJECT_DIR$/assets/controllers" />
-      <recent name="$PROJECT_DIR$/public/old" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/articel/admin" />
@@ -285,9 +303,14 @@ symfony serve</scriptContent>
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="SSH_CONFIG" />
+    <option name="myConnectionId" value="xshoot_sys@185.243.11.115:22 agent" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="85d465f4-f4bc-45eb-9ec9-1d43dc0878fa" name="Default Changelist" comment="" />
+      <changelist id="" name="Default Changelist" comment="" />
       <created>1603692509287</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -319,7 +342,8 @@ symfony serve</scriptContent>
       <workItem from="1635044478494" duration="1481000" />
       <workItem from="1635221721902" duration="887000" />
       <workItem from="1635232093273" duration="309000" />
-      <workItem from="1635277691779" duration="2294000" />
+      <workItem from="1635277691779" duration="9609000" />
+      <workItem from="1635444472512" duration="25247000" />
     </task>
     <servers />
   </component>

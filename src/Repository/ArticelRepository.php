@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Articel;
+use App\Entity\Themen;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,15 +38,23 @@ class ArticelRepository extends ServiceEntityRepository
 
     /**
      * @param $value
+     * @param int|null $thema
      * @return QueryBuilder
      */
-    public function listQueryBuilder( $value ): QueryBuilder
+    public function listQueryBuilder($value, int $thema = null): QueryBuilder
     {
-        return $this->createQueryBuilder('a')
+        $qb =  $this->createQueryBuilder('a')
             ->andWhere('a.titel LIKE :val OR a.haupttext LIKE :val')
-            ->setParameter('val', '%'.$value.'%')
-            ->orderBy('a.datum', 'DESC')
-            ;
+            ->setParameter('val', '%'.$value.'%');
+
+        if ($thema) { $qb
+            ->andWhere('a.thema.id = :tma')
+            ->setParameter('tma', $thema);
+        }
+
+            $qb->orderBy('a.datum', 'DESC');
+
+        return $qb;
     }
 
     // /**

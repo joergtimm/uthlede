@@ -13,6 +13,7 @@ class UploaderHelper
 {
     const ARTIKEL_IMAGE = 'artikel_image';
     const THEMEN_IMAGE = 'themen_image';
+    const PERSON_IMAGE = 'person_image';
 
     private $uploadsPath;
     private $filesystem;
@@ -26,6 +27,22 @@ class UploaderHelper
     public function getUploadPath()
     {
         return $this->uploadsPath;
+    }
+
+    public function uploadPersonImage(UploadedFile $uploadedFile): string
+    {
+
+        $destination = $this->getUploadPath().'/'.self::PERSON_IMAGE;
+
+        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid('PersonImage', true).'.'.$uploadedFile->guessExtension();
+
+        $uploadedFile->move(
+            $destination,
+            $newFilename
+        );
+
+        return $newFilename;
     }
 
 

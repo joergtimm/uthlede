@@ -22,8 +22,10 @@ class AdminThemenController extends AbstractController
      */
     public function index(ThemenRepository $themenRepository): Response
     {
+        $themen = $themenRepository->listThemen();
+
         return $this->render('themen/admin/index.html.twig', [
-            'themens' => $themenRepository->findAll(),
+            'themens' => $themen,
         ]);
     }
 
@@ -77,6 +79,7 @@ class AdminThemenController extends AbstractController
     {
         return $this->render('themen/admin/show.html.twig', [
             'theman' => $theman,
+            'artikels' => $theman->getArticels()
         ]);
     }
 

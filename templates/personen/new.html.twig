@@ -1,0 +1,11 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Themen index{% endblock %}
+
+{% block content %}
+    <h1>Create new Personen</h1>
+
+    {{ include('personen/_form.html.twig') }}
+
+    <a href="{{ path('personen_index') }}">back to list</a>
+{% endblock %}

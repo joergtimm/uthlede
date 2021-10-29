@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Articel;
 use App\Entity\ArtikelBilder;
 use App\Form\ArtikelBilderType;
 use App\Repository\ArtikelBilderRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -92,5 +95,30 @@ class ArtikelBilderController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_artikel:show', [ 'id' => $articel->getId() ], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @param Articel $articel
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     * @Route("/_sort/{id}", name="artikel_bilder_sort", methods={"POST", "PATCH"})
+     */
+    public function sort( Articel $articel, Request $request, EntityManagerInterface $em): Response
+    {
+        $orderedIds = json_decode($request->getContent(), true);
+        if ($orderedIds === null) {
+            return $this->redirectToRoute('admin_artikel:bilder', [ 'id' => $articel->getId() ]);
+        }
+
+        // from (position)=>(id) to (id)=>(position)
+        $orderedIds = array_flip($orderedIds);
+        foreach ($articel->getArtikelBilders() as $medien) {
+            $medien->setPosition($orderedIds[$medien->getId()]);
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('admin_artikel:bilder', [ 'id' => $articel->getId() ]);
     }
 }

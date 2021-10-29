@@ -1,0 +1,2 @@
+2021/10/26 23:59:08 [20418] rsync: [client] failed to open exclude file exclude-file.txt: No such file or directory (2)
+2021/10/26 23:59:08 [20418] rsync error: error in file IO (code 11) at exclude.c(1188) [client=3.2.3]

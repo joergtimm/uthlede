@@ -1,22 +1,16 @@
 <table class="table">
     <thead>
     <tr>
-        <th>Id</th>
         <th>Titel</th>
-        <th>Bild</th>
-        <th>Rang</th>
-        <th>Slug</th>
+        <th>Berichte</th>
         <th>actions</th>
     </tr>
     </thead>
     <tbody>
     {% for theman in themens %}
         <tr>
-            <td>{{ theman.id }}</td>
             <td>{{ theman.titel }}</td>
-            <td>{{ theman.bild }}</td>
-            <td>{{ theman.rang }}</td>
-            <td>{{ theman.slug }}</td>
+            <td>{{ theman.artikelanzahl }}</td>
             <td>
                 <a href="{{ path('admin_themen:show', {'id': theman.id}) }}">show</a>
                 <a href="{{ path('admin_themen:edit', {'id': theman.id}) }}">edit</a>

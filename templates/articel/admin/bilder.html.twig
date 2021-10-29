@@ -1,0 +1,45 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Edit Articel{% endblock %}
+
+{% block content %}
+    <h1>Artikel Bilder verwalten</h1>
+    <hr>
+    <h5>{{ artikel.titel }}</h5>
+
+    <div class="card text-dark bg-light mb-3">
+        <div class="card-header">Bilder verwalten</div>
+        <div class="card-body">
+            <form action="{{ path('admin_artikel:admin_bild_add', { id: artikel.id }) }}" method="post" class="dropzone" enctype="multipart/form-data" {{ stimulus_controller('dropzone')}} data-turbo-frame="artikel-{{ artikel.id }}-bilders">
+
+            </form>
+        </div>
+        <div class="card-body">
+            <div
+                    id="artikel-{{ artikel.id }}-bilder"
+                    class="row"
+                    {{ stimulus_controller('sort-helper', {
+                        sortUrl: path('artikel_bilder_sort', { id: artikel.id })
+                    }) }}
+            >
+                {% for abild in abilder %}
+                    <div id="bild_{{ abild.id }}" class="col-sm-6 col-md-4 col-lg-3 p-1 h-100" data-id="{{ abild.id }}">
+                        <div class="card">
+                            <div class="card-body p-1">
+                                <img class="card-img-top" src="{{ abild.imagePath|imagine_filter('squared_thumbnail_min_ob') }}" alt="Image-{{ abild.id }}" />
+                            </div>
+                            <div class="card-footer p-1 d-flex justify-between">
+                                <span {{ stimulus_target('sort-helper', 'handle')}} class="btn drag-handle"><i class="fa fa-reorder"></i></span>
+                                {{ include('artikel_bilder/_delete_form.html.twig', { artikel_bilder: abild }) }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('admin_artikel:index') }}">Zurück zur Liste</a>
+
+    {#  include('articel/admin/_delete_form.html.twig') #}
+{% endblock %}

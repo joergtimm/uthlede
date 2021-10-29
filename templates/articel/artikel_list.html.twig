@@ -4,19 +4,55 @@
 {% block content %}
 <div class="card">
     <div class="card-header">
-        Blog Liste
+        Liste Berichte - ({{ artikels.getTotalItemCount }}  )
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-12">
-                <a href="{{ path('app_artikel_view', { slug: artikel.slug }) }}" class="w-100">
-                    <h5 class="card-title">{{ artikel.titel }}</h5>
-                </a>
-                <p class="card-text d-flex justify-start">
-                    <small class="text-muted mx-1"><i class="fa fa-calendar-o me-2"></i>{{ artikel.datum|date('d.m.Y') }}</small>
-                    <small class="text-muted mx-1"><i class="fa fa-user me-2"></i>Otto Baur</small>
-                    <small class="text-muted mx-1"><i class="fa fa-folder me-2"></i>Dorfleben</small>
-                </p>
+            <div class="col-6 m-2">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text"
+                               name="q"
+                               class="form-control"
+                               value="{{ app.request.query.get('q') }}"
+                               placeholder="Suche..."
+                               autocomplete="off"
+                        >
+                        <div class="input-group-append">
+                            <button type="submit"
+                                    class="btn btn-outline-secondary">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Datum</th>
+                    <th scope="col">Titel</th>
+                    <th scope="col">Thema</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artikel in artikels %}
+                <tr>
+                    <th scope="row">{{ artikel.datum|date('d.m.Y') }}</th>
+                    <td>
+                        <a href="{{ path('app_artikel_view', { slug: artikel.slug }) }}">
+                            {{ artikel.titel }}
+                        </a>
+                        </td>
+                    <td>{{ artikel.thema.titel }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+            <div class="navigation d-flex justify-content-end">
+                {{ knp_pagination_render(artikels) }}
             </div>
         </div>
     </div>

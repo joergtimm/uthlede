@@ -63,6 +63,11 @@ class User implements UserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Personen::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $personen;
+
     public function __construct()
     {
         $this->artikelMitwirkungens = new ArrayCollection();
@@ -259,6 +264,28 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->username;
+    }
+
+    public function getPersonen(): ?Personen
+    {
+        return $this->personen;
+    }
+
+    public function setPersonen(?Personen $personen): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($personen === null && $this->personen !== null) {
+            $this->personen->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($personen !== null && $personen->getUser() !== $this) {
+            $personen->setUser($this);
+        }
+
+        $this->personen = $personen;
+
+        return $this;
     }
 }

@@ -8,24 +8,12 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ theman.id }}</td>
-            </tr>
-            <tr>
                 <th>Titel</th>
                 <td>{{ theman.titel }}</td>
             </tr>
             <tr>
                 <th>Bild</th>
                 <td>{{ theman.bild }}</td>
-            </tr>
-            <tr>
-                <th>Rang</th>
-                <td>{{ theman.rang }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ theman.slug }}</td>
             </tr>
         </tbody>
     </table>
@@ -35,4 +23,31 @@
     <a href="{{ path('admin_themen:edit', {'id': theman.id}) }}">edit</a>
 
     {{ include('themen/admin/_delete_form.html.twig') }}
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Datum</th>
+                    <th scope="col">Titel</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for artikel in artikels %}
+                <tr>
+                    <th scope="row">{{ artikel.datum|date('d.m.Y') }}</th>
+                    <td>{{ artikel.titel }}</td>
+                    <td>
+                        <a href="{{ path('admin_artikel:edit', { id: artikel.id }) }}" class="btn">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

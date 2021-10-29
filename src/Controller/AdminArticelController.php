@@ -7,6 +7,7 @@ use App\Entity\ArtikelBilder;
 use App\Entity\Themen;
 use App\Form\ArtikelFormType;
 use App\Repository\ArticelRepository;
+use App\Repository\ArtikelBilderRepository;
 use App\Repository\ThemenRepository;
 use App\Service\UploaderHelper;
 use DateTime;
@@ -33,7 +34,9 @@ class AdminArticelController extends AbstractController
     public function index(Request $request, ArticelRepository $articelRepository, PaginatorInterface $paginator): Response
     {
         $q = $request->query->get('q');
-        $querybuilder = $articelRepository->listQueryBuilder($q);
+        $t = $request->query->get('t');
+
+        $querybuilder = $articelRepository->listQueryBuilder($q, $t);
 
         $pagination = $paginator->paginate(
             $querybuilder,
@@ -191,6 +194,19 @@ class AdminArticelController extends AbstractController
         return $this->render('articel/admin/edit.html.twig', [
             'articel' => $articel,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/bilder", name="bilder", methods={"GET","POST"})
+     */
+    public function bilder( Articel $articel, ArtikelBilderRepository $bilderRepository ): Response
+    {
+
+        $abilder = $bilderRepository->findByArtikel($articel);
+        return $this->render('articel/admin/bilder.html.twig', [
+            'artikel' => $articel,
+            'abilder' => $abilder
         ]);
     }
 

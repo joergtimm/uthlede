@@ -13,8 +13,8 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Bild</th>
                     <th>Titel</th>
+                    <th>Thema</th>
                     <th>Datum</th>
                     <th>actions</th>
                 </tr>
@@ -22,12 +22,16 @@
                 <tbody>
                 {% for articel in pagination %}
                     <tr>
-                        <td><img class="img-fluid" src="{{ articel.imagePath|imagine_filter('squared_thumbnail_mini') }}" /> </td>
                         <td>{{ articel.titel }}</td>
-                        <td>{{ articel.datum ? articel.datum|date('Y-m-d') : '' }}</td>
+                        <td>{{ articel.thema.titel }}</td>
+                        <td>{{ articel.datum ? articel.datum|date('d-m-Y') : '' }}</td>
                         <td>
-                            <a class="btn btn-outline-info" href="{{ path('admin_artikel:show', {'id': articel.id}) }}">show</a>
-                            <a class="btn btn-outline-warning" href="{{ path('admin_artikel:edit', {'id': articel.id}) }}">edit</a>
+                            <a class="btn btn-outline-info" href="{{ path('admin_artikel:bilder', {'id': articel.id}) }}">
+                                <i class="fa fa-picture-o"></i>
+                            </a>
+                            <a class="btn btn-outline-warning" href="{{ path('admin_artikel:edit', {'id': articel.id}) }}">
+                                <i class="fa fa-pencil"></i>
+                            </a>
                         </td>
                     </tr>
                 {% else %}

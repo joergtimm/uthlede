@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Articel;
 use App\Entity\Themen;
 use App\Entity\User;
+use App\Repository\UserRepository;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -48,6 +49,7 @@ class ArtikelFormType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'username'
             ])
+
 
         ;
     }

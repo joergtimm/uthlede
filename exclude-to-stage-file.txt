@@ -1,0 +1,11 @@
+.env.*
+/.git
+/.idea
+/vendor
+/var
+/_temp
+/node_modules
+/backup
+/mercure
+/stages
+/old
