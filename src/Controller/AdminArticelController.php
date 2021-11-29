@@ -15,6 +15,7 @@ use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/admin/artikel", name="admin_artikel:")
+ * @IsGranted("ROLE_ADMIN")
  */
 class AdminArticelController extends AbstractController
 {
@@ -176,7 +178,7 @@ class AdminArticelController extends AbstractController
     /**
      * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Articel $articel): Response
+    public function edit(Request $request, Articel $articel, UploaderHelper $uploaderHelper): Response
     {
         $form = $this->createForm(ArtikelFormType::class, $articel, [
             'action' => $this->generateUrl('admin_artikel:edit', [
@@ -186,6 +188,14 @@ class AdminArticelController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $uploadedFile */
+            $uploadedFile = $form['bild']->getData();
+
+            if ($uploadedFile) {
+                $newFilename = $uploaderHelper->uploadArtikelImage($uploadedFile);
+                $articel->setBild($newFilename);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_artikel:index');
@@ -215,8 +225,26 @@ class AdminArticelController extends AbstractController
      */
     public function delete(Request $request, Articel $articel): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $bilder = $articel->getArtikelBilders();
+
+        foreach ( $bilder as $bild )
+        {
+            $entityManager->remove($bild);
+            $entityManager->flush();
+        }
+
+        $comments = $articel->getComments();
+
+        foreach ( $comments as $comment )
+        {
+            $entityManager->remove($comment);
+            $entityManager->flush();
+        }
+
         if ($this->isCsrfTokenValid('delete'.$articel->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->remove($articel);
             $entityManager->flush();
         }

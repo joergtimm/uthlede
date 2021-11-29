@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JetBrains\PhpStorm\Pure;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
@@ -171,7 +172,7 @@ class Articel
         return $this;
     }
 
-    public function getImagePath(): ?string
+    #[Pure] public function getImagePath(): ?string
     {
         return '/uploads/'.UploaderHelper::ARTIKEL_IMAGE.'/'.$this->getBild();
     }

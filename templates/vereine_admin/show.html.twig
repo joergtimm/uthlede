@@ -1,0 +1,38 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}show Verein{% endblock %}
+
+{% block content %}
+    <h1>Vereine</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vereine.id }}</td>
+            </tr>
+            <tr>
+                <th>Titel</th>
+                <td>{{ vereine.titel }}</td>
+            </tr>
+            <tr>
+                <th>Aktiv</th>
+                <td>{{ vereine.aktiv ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Beschreibung</th>
+                <td>{{ vereine.beschreibung }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ vereine.logo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('vereine_admin_index') }}">back to list</a>
+
+    <a href="{{ path('vereine_admin_edit', {'id': vereine.id}) }}">edit</a>
+
+    {{ include('vereine_admin/_delete_form.html.twig') }}
+{% endblock %}

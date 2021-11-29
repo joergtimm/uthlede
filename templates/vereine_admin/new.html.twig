@@ -1,0 +1,10 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}New Verein{% endblock %}
+
+{% block content %}
+    <h4>Neuer Verein</h4>
+    {{ include('vereine_admin/_form.html.twig', {'button_label': 'speichern'}) }}
+
+    <a href="{{ path('vereine_admin_index') }}">back to list</a>
+{% endblock %}

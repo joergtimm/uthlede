@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="ftp.uthlede.de" createEmptyFolders="true" remoteFilesAllowedToDisappearOnAutoupload="false" showEqualInSync="true" showDifferentInSync="false" showNewOnSourceInSync="false">
+  <component name="PublishConfigData" serverName="ftp.uthlede.de" createEmptyFolders="true" remoteFilesAllowedToDisappearOnAutoupload="false" compareModeInSync="TIMESTAMP" showEqualInSync="true" showDifferentInSync="false" showNewOnSourceInSync="false">
     <serverData>
       <paths name="ftp.uthlede.de">
         <serverdata>
@@ -9,11 +9,13 @@
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/var" />
+            <excludedPath local="true" path="$PROJECT_DIR$/node_modules" />
+            <excludedPath local="true" path="$PROJECT_DIR$/vendor" />
             <excludedPath local="true" path="$PROJECT_DIR$/public/media" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.env" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.env.local" />
             <excludedPath local="true" path="$PROJECT_DIR$/public/old" />
             <excludedPath local="true" path="$PROJECT_DIR$/public/uploads" />
-            <excludedPath local="true" path="$PROJECT_DIR$/vendor" />
-            <excludedPath local="true" path="$PROJECT_DIR$/node_modules" />
           </excludedPaths>
         </serverdata>
       </paths>

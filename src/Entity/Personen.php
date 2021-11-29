@@ -5,7 +5,10 @@ namespace App\Entity;
 use App\Repository\PersonenRepository;
 use App\Service\UploaderHelper;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=PersonenRepository::class)
@@ -42,37 +45,47 @@ class Personen
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $beschreibung;
+    private ?string $beschreibung;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $geboren;
+    private ?DateTimeInterface $geboren;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $wohnhaftAb;
+    private ?DateTimeInterface $wohnhaftAb;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $wohnhaftBis;
+    private ?DateTimeInterface $wohnhaftBis;
 
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    private $rollen = [];
+    private array $rollen = [];
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $foto;
+    private ?string $foto;
 
     /**
      * @ORM\OneToOne(targetEntity=User::class, inversedBy="personen", cascade={"persist", "remove"})
      */
-    private $user;
+    private ?User $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PersVer::class, mappedBy="person")
+     */
+    private $persVers;
+
+    public function __construct()
+    {
+        $this->persVers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -217,4 +230,35 @@ class Personen
 
         return $this;
     }
+
+    /**
+     * @return Collection|PersVer[]
+     */
+    public function getPersVers(): Collection
+    {
+        return $this->persVers;
+    }
+
+    public function addPersVer(PersVer $persVer): self
+    {
+        if (!$this->persVers->contains($persVer)) {
+            $this->persVers[] = $persVer;
+            $persVer->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersVer(PersVer $persVer): self
+    {
+        if ($this->persVers->removeElement($persVer)) {
+            // set the owning side to null (unless already changed)
+            if ($persVer->getPerson() === $this) {
+                $persVer->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

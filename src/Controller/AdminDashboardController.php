@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Repository\CommentsRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * Class AdminDashboardController
  * @package App\Controller
  * @Route("/admin", name="admin:")
+ * @IsGranted("ROLE_ADMIN")
  */
 class AdminDashboardController extends AbstractController
 {

@@ -2,34 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85d465f4-f4bc-45eb-9ec9-1d43dc0878fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.deploy/.env.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/.fancy-bash-promt.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/.workdir.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/composer.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/db_to_stage.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/env.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/filesync.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/filesync_2.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/fmessage.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/git.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/local_db_to_stage.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/parse-yml.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/pull-media-from-backup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/reset_stages.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/start_mercure.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/test.bash" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/test.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.deploy/yarn.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exclude-backup-file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exclude-file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exclude-to-stage-file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/controllers/tanker_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/make-ckeditor5.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/AlertComponent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/TankenComponent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/WetterComponent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Twig/Components/WochentagComponent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/alert.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/tanken.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/wetter.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/wochentag.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0ced3ff2-9707-4cd4-b135-6eaca095c912.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0ced3ff2-9707-4cd4-b135-6eaca095c912.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uth_5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uth_5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/prod/webpack_encore.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminArticelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminArticelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminDashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminThemenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminThemenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArtikelBilderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArtikelBilderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArtikelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArtikelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +54,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -64,40 +73,64 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/templates/admin_base.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Controller/SecurityController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/templates/articel/artikel_list.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/liip_imagine.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/config/packages/fos_ckeditor.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Controller/AdminArticelController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle/src/Resources/views/Form/ckeditor_widget.html.twig" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/templates/base.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle/src/Builder/JsonBuilder.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/twig/extensions/lib/Twig/Extensions/Grammar/Tag.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/knp_paginator.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle/src/Twig/CKEditorExtension.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Form/ArtikelFormType.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/controllers/tanker_controller.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.deploy/test.sh" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/.deploy/filesync.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/controllers/modal-form_controller.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/node_modules/ckeditor/package.json" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/assets/controllers/reload-content_controller.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Repository/ThemenRepository.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Entity/Articel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Controller/ArtikelController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/controllers/sort-helper_controller.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Controller/ArtikelBilderController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config/packages/twig.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/templates/articel/artikel_view.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/vendor/gedmo/doctrine-extensions/example/app/Entity/Category.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/assets/styles/app.scss" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/deploy.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Repository/ArticelRepository.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Service/UploaderHelper.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/articel/admin/_form.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/exclude-backup-file.txt" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/node_modules/lightgallery.js/src/sass/lightgallery.scss" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/webpack.config.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/personen/new.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Form/UserType.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Entity/Personen.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Entity/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Entity/Vereine.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Controller/HomeController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Controller/SecurityController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/articel/artikel_list.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/controllers/dropzone_controller.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/fos_ckeditor.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Controller/AdminArticelController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle/src/Resources/views/Form/ckeditor_widget.html.twig" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.deploy/test.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.deploy/filesync.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Form/CommentsAdminType.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Controller/ArtikelController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Repository/PersVerRepository.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/articel/admin/bilder.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/articel/artikel_view.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/styles/app.scss" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/assets/app.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/node_modules/lightgallery.js/src/sass/lightgallery.scss" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/templates/comments/_form.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/_card.scss" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/templates/comments/index.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/comments/edit.html.twig" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Command/ImportArtikelBilderCommand.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/framework.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/public/old/bilder.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Entity/Personen.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/oneup_flysystem.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Controller/CommentsController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Form/CommentsType.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/config/packages/mailer.yaml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -229,6 +262,9 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-twig-component" />
+      <path value="$PROJECT_DIR$/vendor/connectholland/cookie-consent-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/templating" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jP4h7FHjEwOn9Qs3yA5KyTgFrN" />
@@ -248,6 +284,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
+    <property name="GitStage.ChangesTree.GroupingKeys" value="directory&#10;module&#10;repository" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -256,7 +293,9 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules" />
+    <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
+    <property name="database.data.extractors.current.id" value="SQL Inserts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -269,23 +308,23 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Form" />
-      <recent name="$PROJECT_DIR$/templates/articel/admin" />
+      <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/.deploy" />
-      <recent name="$PROJECT_DIR$/templates/articel" />
+      <recent name="$PROJECT_DIR$/templates/components" />
+      <recent name="$PROJECT_DIR$/src/Twig/Components" />
+      <recent name="$PROJECT_DIR$/src/Components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Twig" />
       <recent name="$PROJECT_DIR$/templates/articel/admin" />
       <recent name="$PROJECT_DIR$/templates/themen/admin" />
       <recent name="$PROJECT_DIR$/assets/styles/layouts" />
       <recent name="$PROJECT_DIR$/templates/registration" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -310,7 +349,6 @@ symfony serve</scriptContent>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="" name="Default Changelist" comment="" />
       <created>1603692509287</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -343,7 +381,38 @@ symfony serve</scriptContent>
       <workItem from="1635221721902" duration="887000" />
       <workItem from="1635232093273" duration="309000" />
       <workItem from="1635277691779" duration="9609000" />
-      <workItem from="1635444472512" duration="25247000" />
+      <workItem from="1635444472512" duration="25763000" />
+      <workItem from="1635545530053" duration="621000" />
+      <workItem from="1635558527398" duration="5000" />
+      <workItem from="1635559115672" duration="5975000" />
+      <workItem from="1635619522076" duration="1000" />
+      <workItem from="1635622900076" duration="18000" />
+      <workItem from="1635634402699" duration="838000" />
+      <workItem from="1635638494232" duration="7568000" />
+      <workItem from="1635646573252" duration="857000" />
+      <workItem from="1635794394330" duration="1855000" />
+      <workItem from="1635796271082" duration="76000" />
+      <workItem from="1635796361811" duration="459000" />
+      <workItem from="1635955102059" duration="13234000" />
+      <workItem from="1635971577076" duration="452000" />
+      <workItem from="1635984383245" duration="2839000" />
+      <workItem from="1636098468918" duration="10959000" />
+      <workItem from="1636141425198" duration="7354000" />
+      <workItem from="1636227335694" duration="388000" />
+      <workItem from="1636229816813" duration="1842000" />
+      <workItem from="1636843382009" duration="1431000" />
+      <workItem from="1636846726505" duration="3279000" />
+      <workItem from="1637007315436" duration="149000" />
+      <workItem from="1637179546581" duration="8335000" />
+      <workItem from="1637188992210" duration="4000" />
+      <workItem from="1637189642140" duration="2410000" />
+      <workItem from="1637365314905" duration="1770000" />
+      <workItem from="1637775775906" duration="140000" />
+      <workItem from="1637809562154" duration="614000" />
+      <workItem from="1637951335449" duration="434000" />
+      <workItem from="1637953542137" duration="5697000" />
+      <workItem from="1638057231786" duration="619000" />
+      <workItem from="1638212438829" duration="1498000" />
     </task>
     <servers />
   </component>
@@ -364,6 +433,13 @@ symfony serve</scriptContent>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/httpdocs" />
+    </ignored-roots>
+    <MESSAGE value="Comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comment" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

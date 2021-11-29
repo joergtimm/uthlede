@@ -8,12 +8,14 @@ use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Process\Process;
 
 class UploaderHelper
 {
     const ARTIKEL_IMAGE = 'artikel_image';
     const THEMEN_IMAGE = 'themen_image';
     const PERSON_IMAGE = 'person_image';
+    const IMAGE = 'image';
 
     private $uploadsPath;
     private $filesystem;
@@ -79,6 +81,22 @@ class UploaderHelper
         return $newFilename;
     }
 
+    public function uploadVereinsLogo(UploadedFile $uploadedFile): string
+    {
+
+        $destination = $this->getUploadPath().'/'.self::IMAGE;
+
+        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid('Image', true).'.'.$uploadedFile->guessExtension();
+
+        $uploadedFile->move(
+            $destination,
+            $newFilename
+        );
+
+        return $newFilename;
+    }
+
     public function deleteFile(string $path)
     {
         if(file_exists($path)) {
@@ -87,6 +105,26 @@ class UploaderHelper
 
 
 
+    }
+
+    public function reCacheThumbs(string $relPath, array $filters ): string
+    {
+        foreach ($filters as $filter)
+        {
+            $command = sprintf(
+                './bin/console liip:imagine:cache:resolve %s --filter=%s',
+                $relPath,
+                $filter
+            );
+
+            $process = Process::fromShellCommandline($command);
+            $process->setWorkingDirectory(__DIR__ . '/../../');
+            $process->setTimeout(3600);
+            $process->enableOutput();
+            $process->run();
+        }
+
+        return $relPath;
     }
 
 

@@ -46,11 +46,19 @@ class ArtikelFormType extends AbstractType
                 'placeholder' => 'Bitte ein Bild auswählen',
             ])
             ->add('author', EntityType::class, [
+                'query_builder' => function (UserRepository $ur) {
+                    return $ur->createQueryBuilder('u')
+                        ->andWhere('u.roles LIKE :userrol')
+                        ->setParameter('userrol', '%AUTHOR%')
+                        ->orderBy('u.username', 'ASC');
+                },
                 'class' => User::class,
-                'choice_label' => 'username'
+                'expanded' => true,
+                'multiple' => false,
+                'choice_label' => 'username',
+                'by_reference' => true,
+                'label' => false
             ])
-
-
         ;
     }
 

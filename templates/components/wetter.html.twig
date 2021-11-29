@@ -1,0 +1,23 @@
+<div class="card my-2">
+    <div class="card-header d-flex justify-content-end">
+        Wetter {{ this.heute.name }}<br>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-5">
+                {% for wetter in this.heute.weather %}
+                <img class="img-fluid" src="https://openweathermap.org/img/wn/{{ wetter.icon }}@2x.png" alt="wetter icon" />
+                {% endfor %}
+            </div>
+            <div class="col-7">
+                <small>{{ this.wochentag }}, {{ "now"|date('d.m.Y') }}</small><br>
+                <small>Temp: {{ (this.heute.main.temp-273.15)|round(1, 'floor') }} °C</small>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <small>{{ (this.heute.main.temp_min-273.15)|round(1, 'floor') }} °C / {{ (this.heute.main.temp_max-273.15)|round(1, 'floor') }} °C</small>
+        <small>{{ this.heute.main.humidity }} %</small>
+        <small>{{ this.heute.main.pressure }} hp</small>
+    </div>
+</div>

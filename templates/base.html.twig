@@ -6,8 +6,18 @@
     <meta name="description" content="">
     <meta name="author" content="Jörg Timm">
         <!-- Favicon -->
-        {% block style %}
+    {% block style %}
             {{ encore_entry_link_tags('app') }}
+            <style>
+                .footer {
+                    display: block;
+                    box-sizing: border-box;
+                    height: 250px;
+                    padding-top: 50px;
+                    background-color: #5050ee;
+                    clip-path: ellipse(300% 100% at 195% 100%);
+                }
+            </style>
         {% endblock %}
 
         {% block javascripts %}
@@ -22,15 +32,15 @@
     {% block body %}
 
         <div class="container">
-            <header class="blog-header py-3">
-                <div class="row flex-nowrap justify-content-between align-items-center bg-light p-2">
+            <header class="blog-header bg-green py-0">
+                <div class="row flex-nowrap justify-content-between align-items-center bg-green p-2">
                     <div class="col-auto pt-1">
                         <a class="link-secondary" href="{{ path('app_home') }}" aria-label="Logo">
                             <img src="{{ asset('/build/images/wappen_uthlede.png')|imagine_filter('squared_thumbnail_mini') }}" alt="wappen-von-uthlede"/>
                         </a>
                     </div>
                     <div class="d-none d-sm-none d-md-block col-md-4 col-lg-4 text-center">
-                        <a class="blog-header-logo text-dark" href="{{ path('app_home') }}">UTHLEDE.DE</a>
+                        <a class="blog-header-logo text-dark" href="{{ path('app_home') }}">UTHLEDE.DE </a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
                         {#
@@ -38,17 +48,26 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
                         </a>
                         #}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="btn btn-sm btn-outline-secondary mx-1" href="{{ path('admin:dashboard') }}" target="_top"><i class="fa fa-dashboard me-2"></i>Admin</a>
+                        {% endif %}
                         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                            <a class="btn btn-sm btn-outline-secondary mx-1" href="#" target="_top"><i class="fa fa-user-circle-o me-2"></i> {{ app.user.userIdentifier }}</a>
+                            <a class="btn btn-sm btn-outline-secondary mx-1" href="{{ path('app_logout') }}" target="_top"><i class="fa fa-user-circle-o me-2"></i> {{ app.user.userIdentifier }}</a>
                         {% else %}
-                        <a class="btn btn-sm btn-outline-secondary mx-1" href="{{ path('app_login') }}" target="_top">Login</a>
-                        <a class="btn btn-sm btn-outline-secondary mx-1" href="{{ path('app_register') }}" target="_top">Registrieren</a>
+                        <a class="btn btn-sm btn-outline-secondary mx-1" href="{{ path('app_login') }}" target="_top">
+                            <i class="fa fa-sign-in me-2"></i>
+                            Login
+                        </a>
+                        <a class="btn btn-sm btn-outline-secondary mx-1" href="{{ path('app_register') }}" target="_top">
+                            <i class="fa fa-user-plus me-2"></i>
+                            Registrieren
+                        </a>
                         {% endif %}
                     </div>
                 </div>
             </header>
 
-            <nav class="navbar navbar-expand-md navbar-light mb-3">
+            <nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -87,10 +106,9 @@
                 </div>
             </div>
             #}
-
-
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-8">
+
                     <div class="row">
                         {% for artikel in artikels %}
                             <div class="card news-card mb-3">
@@ -122,33 +140,17 @@
                             </div>
                         {% endfor %}
                     </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="d-none d-md-none d-lg-block p-4 mb-3 bg-light">
-                        <div id="wcom-74c70c48f1628b21f010253fee82e509" class="wcom-default w300x250"
-                             style="border: 0px; background-color: transparent; border-radius: 5px; color: rgb(85, 114, 23);">
-                            <link rel="stylesheet" href="//cs3.wettercomassets.com/woys/5/css/w.css" media="all">
-                            <div class="wcom-city">
-                                <a style="color: rgb(85, 114, 23);"
-                                      href="https://www.wetter.com/deutschland/hagen-im-bremischen/uthlede/DE0010808.html"
-                                      target="_blank" rel="nofollow" aria-label="Wetter Berlin"
-                                      title="Wetter Uthlede"
-                                >
-                                    Wetter Uthlede
-                                </a>
-                            </div>
-                            <div id="wcom-74c70c48f1628b21f010253fee82e509-weather"></div>
-                            <script type="text/javascript" src="//cs3.wettercomassets.com/woys/5/js/w.js"></script>
-                            <script type="text/javascript">_wcomWidget({
-                                    id: 'wcom-74c70c48f1628b21f010253fee82e509',
-                                    location: 'DE0010808',
-                                    format: '300x250',
-                                    type: 'summary'
-                                });</script>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-end">
+                            {{ knp_pagination_render(artikels) }}
                         </div>
                     </div>
-                    <div class="p-4 mb-3 bg-light rounded">
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-4" >
+                    {{ component('wetter') }}
+
+                    <div class="p-1 mb-3 bg-light rounded">
                         <form>
                             <div
                                     class="input-group"
@@ -174,7 +176,7 @@
                         </form>
                     </div>
 
-                    <div class="p-4">
+                    <div class="p-1">
                         <h4 class="text-center">Themen</h4>
                         <hr/>
                         <ul class="list-group">
@@ -190,31 +192,35 @@
                             {% endfor %}
                         </ul>
                     </div>
-
-                    <div class="p-4">
-                        <h4 class="fst-italic">Elsewhere</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="#">GitHub</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Facebook</a></li>
-                        </ol>
-                    </div>
                 </div>
 
             </div><!-- /.row -->
 
-
+//
         {% endblock %}
         </main><!-- /.container -->
 
-        <footer class="blog-footer container bg-green text-light my-3">
-            <div class="row">
+        <footer class="footer container bg-green text-light my-3" {{ stimulus_controller('tanker') }}>
+            <div class="row mb-3">
                 <div class="col-sm-12 col-md-6 col-lg-4 p-2">
                     <h4>Uthlede.de</h4>
                     <hr>
-                    <p class="ms-3 mb-2">Otto Baur</p>
-                    <p class="ms-3 mb-2">ConnyTrowitch</p>
-                    <p class="ms-3 mb-2">Jörg Timm</p>
+                    <p class="ms-3 mb-2">Redaktion: Otto Baur</p>
+                    <p class="ms-3 mb-2">Moderatorin: Conny Trowitzsch</p>
+                    <p class="ms-3 mb-2">Administrator: Jörg Timm</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 p-2">
+                    <h4>Kontakt</h4>
+                    <hr>
+                    <p class="ms-3 mb-2">Uthlede</p>
+                    <p class="ms-3 mb-2">Bürgermeister</p>
+                    <p class="ms-3 mb-2">Kontakt</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 p-2">
+                    <h4>Rechtlich</h4>
+                    <hr>
+                    <p class="ms-3 mb-2">Impreessum</p>
+                    <p class="ms-3 mb-2">Datenschutz</p>
                 </div>
             </div>
 

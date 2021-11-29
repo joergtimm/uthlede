@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VereineRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,13 @@ class Vereine
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $logo;
+
+
+    public function __construct()
+    {
+        $this->persVereines = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -106,4 +115,6 @@ class Vereine
 
         return $this;
     }
+
+
 }
