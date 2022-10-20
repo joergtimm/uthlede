@@ -1,15 +1,18 @@
-import { Controller } from 'stimulus';
-import Axios from "axios";
+import { Controller } from '@hotwired/stimulus';
+
 
 export default class extends Controller {
+    static targets = ['rangeInput', 'rangeSlider']
 
 
-    connect() {
-        Axios.get(`https://creativecommons.tankerkoenig.de/json/prices.php?ids=3704135c-0d7e-4c76-8346-882f1b60209c&apikey=a2ad9604-4f9f-0021-5fb3-e8e150cb670b`)
-            .then(function (res) {
-                console.log(res.data.prices)
-            })
+    valuechange(event) {
+
+        setTimeout(() => {
+
+            this.rangeInputTarget.value = this.rangeSliderTarget.value
+
+        }, 1500);
+
+
     }
-
-
 }

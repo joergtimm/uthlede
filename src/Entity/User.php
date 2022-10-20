@@ -49,11 +49,6 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\OneToMany(targetEntity=ArtikelMitwirkungen::class, mappedBy="user")
-     */
-    private $artikelMitwirkungens;
-
-    /**
      * @ORM\OneToMany(targetEntity=Articel::class, mappedBy="author")
      */
     private $articels;
@@ -70,7 +65,6 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->artikelMitwirkungens = new ArrayCollection();
         $this->articels = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
@@ -173,37 +167,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|ArtikelMitwirkungen[]
-     */
-    public function getArtikelMitwirkungens(): Collection
-    {
-        return $this->artikelMitwirkungens;
-    }
-
-    public function addArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
-    {
-        if (!$this->artikelMitwirkungens->contains($artikelMitwirkungen)) {
-            $this->artikelMitwirkungens[] = $artikelMitwirkungen;
-            $artikelMitwirkungen->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
-    {
-        if ($this->artikelMitwirkungens->removeElement($artikelMitwirkungen)) {
-            // set the owning side to null (unless already changed)
-            if ($artikelMitwirkungen->getUser() === $this) {
-                $artikelMitwirkungen->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Articel[]
+     * @return Collection
      */
     public function getArticels(): Collection
     {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="PS-212.5284.49">
+  <component name="dataSourceStorageLocal" created-in="PS-222.4345.15">
     <data-source name="Uthlede" uuid="0ced3ff2-9707-4cd4-b135-6eaca095c912">
-      <database-info product="MariaDB" version="10.5.12-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.7.3" dbms="MARIADB" exact-version="10.5.12" exact-driver-version="2.7">
+      <database-info product="MariaDB" version="10.5.16-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.5.16" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

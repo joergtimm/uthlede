@@ -82,9 +82,15 @@ class Personen
      */
     private $persVers;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ArtikelMitwirkungen::class, mappedBy="person")
+     */
+    private $artikelMitwirkungens;
+
     public function __construct()
     {
         $this->persVers = new ArrayCollection();
+        $this->artikelMitwirkungens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -212,7 +218,7 @@ class Personen
         return $this;
     }
 
-    public function getImagePath(): ?string
+    #[Pure] public function getImagePath(): ?string
     {
 
         return '/uploads/'.UploaderHelper::PERSON_IMAGE.'/'.$this->getFoto();
@@ -255,6 +261,36 @@ class Personen
             // set the owning side to null (unless already changed)
             if ($persVer->getPerson() === $this) {
                 $persVer->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ArtikelMitwirkungen[]
+     */
+    public function getArtikelMitwirkungens(): Collection
+    {
+        return $this->artikelMitwirkungens;
+    }
+
+    public function addArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
+    {
+        if (!$this->artikelMitwirkungens->contains($artikelMitwirkungen)) {
+            $this->artikelMitwirkungens[] = $artikelMitwirkungen;
+            $artikelMitwirkungen->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
+    {
+        if ($this->artikelMitwirkungens->removeElement($artikelMitwirkungen)) {
+            // set the owning side to null (unless already changed)
+            if ($artikelMitwirkungen->getPerson() === $this) {
+                $artikelMitwirkungen->setPerson(null);
             }
         }
 

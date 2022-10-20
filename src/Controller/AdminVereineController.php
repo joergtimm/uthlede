@@ -14,9 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/vereine/admin')]
-class VereineAdminController extends AbstractController
+class AdminVereineController extends AbstractController
 {
-    #[Route('/', name: 'vereine_admin_index', methods: ['GET'])]
+    #[Route('/', name: 'admin_vereine_index', methods: ['GET'])]
     public function index(VereineRepository $vereineRepository): Response
     {
         return $this->render('vereine_admin/index.html.twig', [
@@ -24,7 +24,7 @@ class VereineAdminController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'vereine_admin_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'admin_vereine_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UploaderHelper $uploaderHelper): Response
     {
         $vereine = new Vereine();
@@ -47,7 +47,7 @@ class VereineAdminController extends AbstractController
             $entityManager->persist($vereine);
             $entityManager->flush();
 
-            return $this->redirectToRoute('vereine_admin_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_vereine_index', [], Response::HTTP_SEE_OTHER);
         }
 
 
@@ -57,7 +57,7 @@ class VereineAdminController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'vereine_admin_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'admin_vereine_show', methods: ['GET'])]
     public function show(Vereine $vereine): Response
     {
         return $this->render('vereine_admin/show.html.twig', [
@@ -65,7 +65,7 @@ class VereineAdminController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'vereine_admin_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'admin_vereine_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Vereine $vereine, EntityManagerInterface $entityManager, UploaderHelper $uploaderHelper): Response
     {
         $form = $this->createForm(VereineType::class, $vereine);
@@ -87,7 +87,7 @@ class VereineAdminController extends AbstractController
             $entityManager->persist($vereine);
             $entityManager->flush();
 
-            return $this->redirectToRoute('vereine_admin_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_vereine_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('vereine_admin/edit.html.twig', [
@@ -96,7 +96,7 @@ class VereineAdminController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'vereine_admin_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'admin_vereine_delete', methods: ['POST'])]
     public function delete(Request $request, Vereine $vereine, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$vereine->getId(), $request->request->get('_token'))) {
@@ -104,6 +104,6 @@ class VereineAdminController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('vereine_admin_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_vereine_index', [], Response::HTTP_SEE_OTHER);
     }
 }

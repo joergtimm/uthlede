@@ -8,6 +8,11 @@ liip_imagine:
         #
         #        # an example thumbnail transformation definition
         #        # https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html#create-thumbnails
+        squared_logo_nano:
+            filters:
+                scale:
+                    dim: [ 80, 24 ]
+
         squared_thumbnail_nano:
             filters:
                 scale:

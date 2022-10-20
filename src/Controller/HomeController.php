@@ -4,10 +4,16 @@
 namespace App\Controller;
 
 
+use App\Entity\Tankstellen;
 use App\Repository\ArticelRepository;
 
+use App\Repository\TankstellenRepository;
 use App\Repository\ThemenRepository;
+use Doctrine\DBAL\Types\DateTimeImmutableType;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Pagerfanta\Doctrine\ORM\QueryAdapter;
+use Pagerfanta\Pagerfanta;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,7 +38,8 @@ class HomeController extends AbstractController
 
         $wetter_array = json_decode($wetter);
 
-        // dd(json_decode($tanken, true));
+
+
 
         $cookie_ok = $request->cookies->get('first');
         $first = true;
@@ -59,20 +66,81 @@ class HomeController extends AbstractController
         $querybuilder = $repository->listQueryBuilder($q);
         $themen = $themenRepository->listThemen();
 
-        $pagination = $paginator->paginate(
-            $querybuilder,
-            $request->query->getInt('page', 1),
-            15
+        $adapter = New QueryAdapter($querybuilder);
+
+        $pagerfanta = Pagerfanta::createForCurrentPageWithMaxPerPage(
+            $adapter,
+            $request->query->get('page', 1),
+            10
         );
 
-        $pagination->setCustomParameters([
-            'position' => 'right'
-        ]);
-
         return $this->render('base.html.twig', [
-            'artikels' => $pagination,
+            'pager' => $pagerfanta,
             'themen' => $themen,
             'first' => $first
+        ]);
+    }
+
+    #[Route(path: '/_tanken', name: 'app_tanken')]
+    public function tankstellenAbfrage( Request $request,TankstellenRepository $tankstellenRepository, EntityManagerInterface $em): Response
+    {
+        $lat = '53.3089292';
+        $lng = '8.6169623';
+        $radius = '25';
+        $type = 'all';
+        $sort = 'dist';
+        if ($request->query->get('radius') != null)
+        {
+            $radius = $request->query->get('radius');
+        }
+
+        $json = file_get_contents('https://creativecommons.tankerkoenig.de/json/list.php'
+            ."?lat=$lat"     //  Breite
+            ."&lng=$lng"     //               Länge
+            ."&rad=$radius"  // Suchradius in km
+            ."&type=$type"   // Spritsorte: 'e5', 'e10', 'diesel' oder 'all'
+            ."&sort=$sort"
+            ."&apikey=a2ad9604-4f9f-0021-5fb3-e8e150cb670b");   // Demo-Key ersetzen!
+        $data = json_decode($json);
+
+
+        foreach ($data->stations as $item)
+        {
+
+            $tanke = $tankstellenRepository->findOneBy(['tid' => $item->id]);
+
+            if ($tanke == null )
+            {
+                $tanke = new Tankstellen();
+                $tanke
+                    ->setTid($item->id)
+                    ->setName($item->name)
+                    ->setBrand($item->brand)
+                    ->setStreet($item->street)
+                    ->setPlace($item->place)
+                    ->setLat($item->lat)
+                    ->setLng($item->lng)
+                    ->setPostCode($item->postCode)
+                ;
+            }
+
+            $tanke
+                ->setDiesel($item->diesel)
+                ->setE5($item->e5)
+                ->setE10($item->e10)
+                ->setIsOpen($item->isOpen)
+                ;
+
+            $em->persist($tanke);
+            $em->flush();
+        }
+
+        $tankstellen = $tankstellenRepository->findBy(['isOpen' => true], ['diesel' => 'ASC']);
+
+        return $this->render('_tanken-card.html.twig', [
+            'tankstellen' => $tankstellen,
+            'type' => $type,
+            'radius' => $radius
         ]);
     }
 }

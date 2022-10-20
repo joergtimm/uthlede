@@ -45,10 +45,12 @@ class ArticelRepository extends ServiceEntityRepository
     {
         $qb =  $this->createQueryBuilder('a')
             ->andWhere('a.titel LIKE :val OR a.haupttext LIKE :val')
-            ->setParameter('val', '%'.$value.'%');
+            ->setParameter('val', '%'.$value.'%')
+            ->leftJoin('a.artikelMitwirkungens', 'mittwirkungen')
+            ->leftJoin('a.thema', 'thmea');
 
         if ($thema) { $qb
-            ->andWhere('a.thema.id = :tma')
+            ->andWhere('a.thema = :tma')
             ->setParameter('tma', $thema);
         }
 

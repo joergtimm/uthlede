@@ -1,21 +1,22 @@
 {% for tankstelle in this.tankstellen %}
 <div class="card my-2">
     <div class="card-header d-flex justify-content-between overflow-hidden">
-        <img src="{{ asset('build/images/Shell.png')|imagine_filter('squared_thumbnail_nano') }}">
-        {{ tankstelle.station.name }}
+        Tank-Preise
     </div>
-    <div class="card-body py-1 d-flex justify-content-between">
-        <div>
-            <small>Diesel</small><br>
-            <span class="badge bg-dark rounded-pill">{{ tankstelle.station.diesel }} €</span>
-        </div>
-        <div>
-            <small>Super</small><br>
-            <span class="badge bg-dark rounded-pill">{{ tankstelle.station.e5 }} €</span>
-        </div>
-        <div>
-            <small>E10</small><br>
-            <span class="badge bg-dark rounded-pill">{{ tankstelle.station.e10 }} €</span>
+    <div class="card-body py-1">
+        <div class="row">
+            <div class="col-3">
+                bild
+            </div>
+            <div class="col-3">
+               <b>D</b> 2,04 €
+            </div>
+            <div class="col-3">
+                <b>E5</b> 2,04 €
+            </div>
+            <div class="col-3">
+                <b>E10</b> 2,04 €
+            </div>
         </div>
     </div>
 </div>

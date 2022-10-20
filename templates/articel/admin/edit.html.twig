@@ -3,11 +3,50 @@
 {% block title %}Edit Articel{% endblock %}
 
 {% block content %}
-    <h1>Artikel bearbeiten</h1>
+    <div class="row">
+        <div class="col-7">
+            <h1>Artikel bearbeiten</h1>
 
-    {{ include('articel/admin/_form.html.twig', {'button_label': 'Speichern'}) }}
+            {{ include('articel/admin/_form.html.twig', {'button_label': 'Speichern'}) }}
 
-    <a href="{{ path('admin_artikel:index') }}">Zurück zur Liste</a>
+            <a href="{{ path('admin_artikel:index') }}">Zurück zur Liste</a>
+        </div>
+        <div class="col-5">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <strong>Mitwirkung</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Person</th>
+                            <th scope="col">Rolle</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <turbo-frame id="mitwirkungen">
+                        {% for mitwirkung in mitwirkungen %}
+                        {{ include('articel/admin/_mitwirkung-row.html.twig') }}
+                        {% endfor %}
+                        </turbo-frame>
+                        <tr>
+                            <td colspan="3">
+                                <turbo-frame id="mitwirk_form" src="{{ fragment_uri(controller('App\\Controller\\AdminArticelController::newMitwirkung', {
+                                    id: articel.id
+                                })) }}">
+
+                                </turbo-frame>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     {#  include('articel/admin/_delete_form.html.twig') #}
 {% endblock %}

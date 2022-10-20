@@ -18,30 +18,23 @@ class ArtikelMitwirkungen
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="artikelMitwirkungens")
-     */
-    private $user;
-
-    /**
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $art;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Articel::class, inversedBy="artikelMitwirkungens")
+     */
+    private $artikel;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Personen::class, inversedBy="artikelMitwirkungens")
+     */
+    private $person;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 
     public function getArt(): ?string
@@ -52,6 +45,30 @@ class ArtikelMitwirkungen
     public function setArt(?string $art): self
     {
         $this->art = $art;
+
+        return $this;
+    }
+
+    public function getArtikel(): ?Articel
+    {
+        return $this->artikel;
+    }
+
+    public function setArtikel(?Articel $artikel): self
+    {
+        $this->artikel = $artikel;
+
+        return $this;
+    }
+
+    public function getPerson(): ?Personen
+    {
+        return $this->person;
+    }
+
+    public function setPerson(?Personen $person): self
+    {
+        $this->person = $person;
 
         return $this;
     }

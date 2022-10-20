@@ -1,62 +1,62 @@
-{% extends 'admin_base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Themen index{% endblock %}
 
 {% block content %}
     <h1>Personen</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ personen.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ personen.name }}</td>
-            </tr>
-            <tr>
-                <th>Vorname</th>
-                <td>{{ personen.vorname }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ personen.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Kontakt</th>
-                <td>{{ personen.kontakt }}</td>
-            </tr>
-            <tr>
-                <th>Beschreibung</th>
-                <td>{{ personen.beschreibung }}</td>
-            </tr>
-            <tr>
-                <th>Geboren</th>
-                <td>{{ personen.geboren ? personen.geboren|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>WohnhaftAb</th>
-                <td>{{ personen.wohnhaftAb ? personen.wohnhaftAb|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>WohnhaftBis</th>
-                <td>{{ personen.wohnhaftBis ? personen.wohnhaftBis|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Rollen</th>
-                <td>{{ personen.rollen ? personen.rollen|join(', ') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Foto</th>
-                <td>{{ personen.foto }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Profile Details</h5>
+                </div>
+                <div class="card-body text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Marie Salter" class="img-fluid rounded-circle mb-2" width="128" height="128">
+                    <h4 class="card-title mb-0">{{ personen.vorname }} {{ personen.name }}</h4>
+                    <div class="text-muted mb-2">Chef-Redakteur</div>
 
-    <a href="{{ path('personen_index') }}">back to list</a>
+                    {#
+                    <div>
+                        <a class="btn btn-primary btn-sm" href="#">Follow</a>
+                        <a class="btn btn-primary btn-sm" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg> Message</a>
+                    </div>
+                    #}
+                </div>
+                <hr class="my-0">
+                <div class="card-body">
+                    <h5 class="h6 card-title">Kontakt</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1">
+                            <!-- <span class="fas fa-globe fa-fw mr-1"></span> --><a href="#"><i class="fa fa-mail-forward"></i> baur-uthlede@t-online.de</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <a href="{{ path('personen_edit', {'id': personen.id}) }}">edit</a>
-
-    {{ include('personen/_delete_form.html.twig') }}
+        <div class="col-md-8 col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-actions float-right">
+                        <div class="dropdown show">
+                            <a href="#" data-toggle="dropdown" data-display="static">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h5 class="card-title mb-0">Activities</h5>
+                </div>
+                <div class="card-body h-100">
+                    Otto Baur ist seit Chefredakteur und alleiniger Ersteller der GESAMTEN Inhalte von Uthlede.de
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

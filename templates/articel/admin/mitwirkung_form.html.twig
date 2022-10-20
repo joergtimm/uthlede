@@ -1,0 +1,8 @@
+<turbo-frame id="mitwirk_form">
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="d-flex justify-end">
+        <button class="btn btn-success">{{ button_label|default('speichern') }}</button>
+    </div>
+{{ form_end(form) }}
+</turbo-frame>

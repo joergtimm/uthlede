@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Articel;
 use App\Entity\ArtikelBilder;
+use App\Entity\ArtikelMitwirkungen;
 use App\Entity\Themen;
 use App\Form\ArtikelFormType;
+use App\Form\ArtikelMitwirkungType;
 use App\Repository\ArticelRepository;
 use App\Repository\ArtikelBilderRepository;
 use App\Repository\ThemenRepository;
@@ -23,6 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\UX\Turbo\Stream\TurboStreamResponse;
 
 /**
  * @Route("/admin/artikel", name="admin_artikel:")
@@ -156,12 +159,12 @@ class AdminArticelController extends AbstractController
             $entityManager->persist($articel);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_artikel:index');
+            return $this->redirectToRoute('admin_artikel:index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('articel/admin/new.html.twig', [
+        return $this->renderForm('articel/admin/new.html.twig', [
             'articel' => $articel,
-            'form' => $form->createView(),
+            'form' => $form,
         ]);
     }
 
@@ -198,12 +201,14 @@ class AdminArticelController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_artikel:index');
+            return $this->redirectToRoute('admin_artikel:index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('articel/admin/edit.html.twig', [
+        return $this->renderForm('articel/admin/edit.html.twig', [
             'articel' => $articel,
-            'form' => $form->createView(),
+            'form' => $form,
+            'formTarget' => $request->headers->get('Turbo-Frame'),
+            'mitwirkungen' => $articel->getArtikelMitwirkungens()
         ]);
     }
 
@@ -249,7 +254,67 @@ class AdminArticelController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin_artikel:index');
+        return $this->redirectToRoute('admin_artikel:index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/mitwirkung/{id}/del", name="mitwirkung_delete", methods={"POST"})
+     */
+    public function deleteMitwirkung(Request $request, ArtikelMitwirkungen $artikelMitwirkungen): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $artikel = $artikelMitwirkungen->getArtikel();
+
+        if ($this->isCsrfTokenValid('delete'.$artikelMitwirkungen->getId(), $request->request->get('_token'))) {
+
+            $entityManager->remove($artikelMitwirkungen);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_artikel:edit', [ 'id' => $artikel->getId() ], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @param Articel $articel
+     * @param Request $request
+     * @return Response
+     * @Route("/admin/mitwirkung/{id}/add", name="mittwirkung_add")
+     */
+    public function newMitwirkung( Articel $articel, Request $request ): Response
+    {
+        $mitwirkung = new ArtikelMitwirkungen();
+
+
+        $form = $this->createForm(ArtikelMitwirkungType::class, $mitwirkung, [
+            'action' => $this->generateUrl('admin_artikel:mittwirkung_add', [
+                'id' => $articel->getId()
+            ])
+        ]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var ArtikelMitwirkungen $mitwirkung */
+            $mitwirkung = $form->getData();
+            $mitwirkung->setArtikel($articel);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($mitwirkung);
+            $entityManager->flush();
+
+            // 🔥 The magic happens here! 🔥
+            if (TurboStreamResponse::STREAM_FORMAT === $request->getPreferredFormat()) {
+                // If the request comes from Turbo, only send the HTML to update using a TurboStreamResponse
+                return $this->render('articel/admin/mitwirkung.success.stream.html.twig', ['mitwirkung' => $mitwirkung], new TurboStreamResponse());
+            }
+
+            return $this->redirectToRoute('admin_artikel:edit', [ 'id' => $articel->getId() ], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('articel/admin/mitwirkung_form.html.twig', [
+            'form' => $form,
+            'artikel' => $articel
+        ]);
     }
 
     /**
@@ -313,7 +378,7 @@ class AdminArticelController extends AbstractController
 
             return $this->redirectToRoute('admin_artikel:show', [
                 'id' => $articel->getId()
-            ]);
+            ], Response::HTTP_SEE_OTHER);
     }
 
 }

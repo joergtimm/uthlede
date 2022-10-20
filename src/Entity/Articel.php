@@ -101,10 +101,16 @@ class Articel
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ArtikelMitwirkungen::class, mappedBy="artikel")
+     */
+    private $artikelMitwirkungens;
+
     public function __construct()
     {
         $this->artikelBilders = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->artikelMitwirkungens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -337,6 +343,36 @@ class Articel
             // set the owning side to null (unless already changed)
             if ($comment->getArticel() === $this) {
                 $comment->setArticel(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ArtikelMitwirkungen[]
+     */
+    public function getArtikelMitwirkungens(): Collection
+    {
+        return $this->artikelMitwirkungens;
+    }
+
+    public function addArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
+    {
+        if (!$this->artikelMitwirkungens->contains($artikelMitwirkungen)) {
+            $this->artikelMitwirkungens[] = $artikelMitwirkungen;
+            $artikelMitwirkungen->setArtikel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtikelMitwirkungen(ArtikelMitwirkungen $artikelMitwirkungen): self
+    {
+        if ($this->artikelMitwirkungens->removeElement($artikelMitwirkungen)) {
+            // set the owning side to null (unless already changed)
+            if ($artikelMitwirkungen->getArtikel() === $this) {
+                $artikelMitwirkungen->setArtikel(null);
             }
         }
 

@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('admin_artikel:mitwirkung_delete', {'id': mitwirkung.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ mitwirkung.id) }}">
+    <button class="btn btn-sm btn-danger me-2">
+        <i class="fa fa-trash"></i>
+    </button>
+</form>

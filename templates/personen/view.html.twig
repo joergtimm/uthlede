@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Themen index{% endblock %}
+
+{% block content %}
+    <h1>Personen</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personen.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ personen.name }}</td>
+            </tr>
+            <tr>
+                <th>Vorname</th>
+                <td>{{ personen.vorname }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ personen.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Kontakt</th>
+                <td>{{ personen.kontakt }}</td>
+            </tr>
+            <tr>
+                <th>Beschreibung</th>
+                <td>{{ personen.beschreibung }}</td>
+            </tr>
+            <tr>
+                <th>Geboren</th>
+                <td>{{ personen.geboren ? personen.geboren|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>WohnhaftAb</th>
+                <td>{{ personen.wohnhaftAb ? personen.wohnhaftAb|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>WohnhaftBis</th>
+                <td>{{ personen.wohnhaftBis ? personen.wohnhaftBis|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rollen</th>
+                <td>{{ personen.rollen ? personen.rollen|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Foto</th>
+                <td>{{ personen.foto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personen_index') }}">back to list</a>
+
+    <a href="{{ path('personen_edit', {'id': personen.id}) }}">edit</a>
+
+    {{ include('personen/_delete_form.html.twig') }}
+{% endblock %}

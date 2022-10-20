@@ -1,4 +1,6 @@
-{{ form_start(form) }}
+{{ form_start(form, {
+    attr: { 'data-turbo-frame': formTarget|default('_top') }
+}) }}
 <div class="row">
     <div class="col-12">
         {{ form_row(form.titel) }}

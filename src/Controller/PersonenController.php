@@ -38,7 +38,7 @@ class PersonenController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $uploadedFile */
-            $uploadedFile = $form['foto']->getData();
+            $uploadedFile = $form['bild']->getData();
 
             if ($uploadedFile) {
                 $newFilename = $uploaderHelper->uploadPersonImage($uploadedFile);
@@ -78,7 +78,7 @@ class PersonenController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $uploadedFile */
-            $uploadedFile = $form['foto']->getData();
+            $uploadedFile = $form['bild']->getData();
 
             if ($uploadedFile) {
                 $newFilename = $uploaderHelper->uploadPersonImage($uploadedFile);

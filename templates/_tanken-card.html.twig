@@ -1,0 +1,74 @@
+<turbo-frame id="tankstellen" >
+<div class="card my-2" {{ stimulus_controller('tanker') }}>
+    <div class="card-header d-flex justify-content-end overflow-hidden">
+        Tank-Preise
+    </div>
+    <div class="card-body py-1">
+        <div class="row">
+            <div class="col-9">
+                <label for="customRange3" class="form-label">Umkreis</label>
+                <input type="range" class="form-range" min="5" max="25" step="1" value="{{ radius }}" id="customRange3" {{ stimulus_target('tanker', 'rangeSlider') }} data-action="change->tanker#valuechange">
+            </div>
+            <div class="col-3">
+                <label for="form-ange" class="form-label">KM</label>
+                <input type="text" class="form-range" id="form-range" readonly value="{{ radius }}" {{ stimulus_target('tanker', 'rangeInput') }} >
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Diesel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">E5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">E10</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% for tankstelle in tankstellen %}
+        <div class="row">
+            <div class="col-12 bg-light border-top mt-3">
+                {{ tankstelle.name }} - {{ tankstelle.place }}
+            </div>
+            <div class="col-3">
+                {% if tankstelle.brand == 'Shell' %}
+                <img src="{{ asset('build/images/logos/shell.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+
+                {% if tankstelle.brand == 'ESSO' %}
+                    <img src="{{ asset('build/images/logos/esso.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+
+                {% if tankstelle.brand == 'JET' %}
+                    <img src="{{ asset('build/images/logos/jet.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+
+                {% if tankstelle.brand == 'Freie Tankstelle' %}
+                    <img src="{{ asset('build/images/logos/freie_t.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+
+                {% if tankstelle.brand == 'freie Tankstelle' %}
+                    <img src="{{ asset('build/images/logos/freie_t.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+
+                {% if tankstelle.brand == 'KÖHN & PLAMBECK' %}
+                    <img src="{{ asset('build/images/logos/Tankkarte-1.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+
+                {% if tankstelle.brand == 'JOISS' %}
+                    <img src="{{ asset('build/images/logos/joiss.png')|imagine_filter('squared_logo_nano') }}" alt="logo" />
+                {% endif %}
+            </div>
+            <div class="col-9">
+                <small>{{ tankstelle.diesel }} €</small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</turbo-frame>

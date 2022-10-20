@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tankstellen index{% endblock %}
+
+{% block body %}
+    <h1>Tankstellen index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tid</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Street</th>
+                <th>Place</th>
+                <th>Lat</th>
+                <th>Lng</th>
+                <th>Diesel</th>
+                <th>E5</th>
+                <th>E10</th>
+                <th>IsOpen</th>
+                <th>HouseNumber</th>
+                <th>PostCode</th>
+                <th>UpdateAt</th>
+                <th>OpeningTimes</th>
+                <th>Overrides</th>
+                <th>WholeDay</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tankstellen in tankstellens %}
+            <tr>
+                <td>{{ tankstellen.id }}</td>
+                <td>{{ tankstellen.tid }}</td>
+                <td>{{ tankstellen.name }}</td>
+                <td>{{ tankstellen.brand }}</td>
+                <td>{{ tankstellen.street }}</td>
+                <td>{{ tankstellen.place }}</td>
+                <td>{{ tankstellen.lat }}</td>
+                <td>{{ tankstellen.lng }}</td>
+                <td>{{ tankstellen.diesel }}</td>
+                <td>{{ tankstellen.e5 }}</td>
+                <td>{{ tankstellen.e10 }}</td>
+                <td>{{ tankstellen.isOpen ? 'Yes' : 'No' }}</td>
+                <td>{{ tankstellen.houseNumber }}</td>
+                <td>{{ tankstellen.postCode }}</td>
+                <td>{{ tankstellen.updateAt ? tankstellen.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ tankstellen.openingTimes ? tankstellen.openingTimes|join(', ') : '' }}</td>
+                <td>{{ tankstellen.overrides ? tankstellen.overrides|join(', ') : '' }}</td>
+                <td>{{ tankstellen.wholeDay ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_tankstellen_show', {'id': tankstellen.id}) }}">show</a>
+                    <a href="{{ path('app_admin_tankstellen_edit', {'id': tankstellen.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_tankstellen_new') }}">Create new</a>
+{% endblock %}

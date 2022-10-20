@@ -18,11 +18,6 @@ class PersVer
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Art;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $rolle;
@@ -38,22 +33,31 @@ class PersVer
      */
     private $person;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $art;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Vereine::class, inversedBy="persVers")
+     */
+    private $verein;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $position;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $ansprechpartner;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getArt(): ?string
-    {
-        return $this->Art;
-    }
-
-    public function setArt(string $Art): self
-    {
-        $this->Art = $Art;
-
-        return $this;
-    }
 
     public function getRolle(): ?string
     {
@@ -87,6 +91,54 @@ class PersVer
     public function setPerson(?Personen $person): self
     {
         $this->person = $person;
+
+        return $this;
+    }
+
+    public function getArt(): ?string
+    {
+        return $this->art;
+    }
+
+    public function setArt(string $art): self
+    {
+        $this->art = $art;
+
+        return $this;
+    }
+
+    public function getVerein(): ?Vereine
+    {
+        return $this->verein;
+    }
+
+    public function setVerein(?Vereine $verein): self
+    {
+        $this->verein = $verein;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    public function getAnsprechpartner(): ?bool
+    {
+        return $this->ansprechpartner;
+    }
+
+    public function setAnsprechpartner(?bool $ansprechpartner): self
+    {
+        $this->ansprechpartner = $ansprechpartner;
 
         return $this;
     }

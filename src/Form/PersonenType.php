@@ -27,7 +27,7 @@ class PersonenType extends AbstractType
             ->add('adresse')
             ->add('kontakt')
             ->add('beschreibung')
-            ->add('foto', FileType::class, [
+            ->add('bild', FileType::class, [
                 'mapped' => false,
                 'required' => false,
                 'constraints' => $imageConstrains,

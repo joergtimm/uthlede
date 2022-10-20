@@ -44,10 +44,16 @@ class Vereine
      */
     private $logo;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PersVer::class, mappedBy="verein")
+     */
+    private $persVers;
+
 
     public function __construct()
     {
         $this->persVereines = new ArrayCollection();
+        $this->persVers = new ArrayCollection();
     }
 
 
@@ -112,6 +118,36 @@ class Vereine
     public function setLogo(?string $logo): self
     {
         $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PersVer[]
+     */
+    public function getPersVers(): Collection
+    {
+        return $this->persVers;
+    }
+
+    public function addPersVer(PersVer $persVer): self
+    {
+        if (!$this->persVers->contains($persVer)) {
+            $this->persVers[] = $persVer;
+            $persVer->setVerein($this);
+        }
+
+        return $this;
+    }
+
+    public function removePersVer(PersVer $persVer): self
+    {
+        if ($this->persVers->removeElement($persVer)) {
+            // set the owning side to null (unless already changed)
+            if ($persVer->getVerein() === $this) {
+                $persVer->setVerein(null);
+            }
+        }
 
         return $this;
     }

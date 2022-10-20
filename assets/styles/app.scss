@@ -6,6 +6,7 @@
 @import "~dropzone/dist/dropzone.css";
 @import "~lightgallery.js/src/sass/lightgallery";
 
+
 .form-group {
   margin-bottom: 0.8em;
 }
@@ -19,6 +20,8 @@ a {
   color: #557217!important;
   text-decoration: none;
 }
+
+$nav-tabs-link-active-color: white !important;
 
 .link-main {
   color: #557217!important;
@@ -41,4 +44,13 @@ a:hover {
 }
 .card-title {
   color: #557217!important;
+}
+
+.footer {
+  display: block;
+  box-sizing: border-box;
+  height: 250px;
+  padding-top: 50px;
+  background-color: #A3BB1B;
+  clip-path: ellipse(300% 100% at 195% 100%);
 }

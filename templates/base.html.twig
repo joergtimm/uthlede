@@ -8,16 +8,6 @@
         <!-- Favicon -->
     {% block style %}
             {{ encore_entry_link_tags('app') }}
-            <style>
-                .footer {
-                    display: block;
-                    box-sizing: border-box;
-                    height: 250px;
-                    padding-top: 50px;
-                    background-color: #5050ee;
-                    clip-path: ellipse(300% 100% at 195% 100%);
-                }
-            </style>
         {% endblock %}
 
         {% block javascripts %}
@@ -25,12 +15,9 @@
         {% endblock %}
 
     <title>{% block title %}Uthlede!{% endblock %}</title>
-
-
     </head>
     <body>
     {% block body %}
-
         <div class="container">
             <header class="blog-header bg-green py-0">
                 <div class="row flex-nowrap justify-content-between align-items-center bg-green p-2">
@@ -66,7 +53,6 @@
                     </div>
                 </div>
             </header>
-
             <nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +82,6 @@
         </div>
         <main class="container">
     {% block content %}
-
             {#
             <div class="p-4 p-md-5 mb-4 text-white rounded main-storry">
                 <div class="col-md-6 px-0">
@@ -108,9 +93,9 @@
             #}
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-8">
-
+                    <turbo-frame id="articel-list-{{ pager.currentPage }}">
                     <div class="row">
-                        {% for artikel in artikels %}
+                        {% for artikel in pager %}
                             <div class="card news-card mb-3">
                                 <div class="row g-0">
                                     <div class="col-md-4">
@@ -125,8 +110,19 @@
                                             </a>
                                             <p class="card-text d-flex justify-start">
                                                 <small class="text-muted mx-1"><i class="fa fa-calendar-o me-1"></i>{{ artikel.datum|date('d.m.Y') }}</small>
-                                                <small class="text-muted mx-1"><i class="fa fa-user me-1"></i>Otto</small>
-                                                <small class="text-muted mx-1"><i class="fa fa-folder me-1"></i>Dorfleben</small>
+                                                {% for mitwirker in artikel.artikelMitwirkungens %}
+                                                    {% if mitwirker.art == 'Author' %}
+                                                        <a href="#">
+                                                            <small class="text-muted mx-1">
+                                                                <i class="fa fa-user me-1"></i>{{ mitwirker.person.vorname }} {{ mitwirker.person.name }}
+                                                            </small>
+                                                        </a>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <a href="#">
+                                                    <small class="text-muted mx-1"><i class="fa fa-folder me-1"></i>{{ artikel.thema.titel }}</small>
+                                                </a>
+
                                             </p>
                                             <p class="card-text">{{ artikel.haupttext|truncate(100)|raw }}</p>
                                             <p class="card-text">
@@ -139,15 +135,19 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        {% if pager.hasNextPage %}
+                            <turbo-frame id="articel-list-{{ pager.nextPage }}" src="{{ pagerfanta_page_url(pager, pager.nextPage) }}" loading="lazy">
+                                {{ include('_card-spinner.html.twig') }}
+                            </turbo-frame>
+                        {% endif %}
                     </div>
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-end">
-                            {{ knp_pagination_render(artikels) }}
-                        </div>
-                    </div>
+                    </turbo-frame>
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4" >
+                    <turbo-frame id="tankstellen" src="{{ fragment_uri(controller('App\\Controller\\HomeController::tankstellenAbfrage')) }}" loading="lazy">
+                        {{ include('_card-spinner.html.twig') }}
+                    </turbo-frame>
                     {{ component('wetter') }}
 
                     <div class="p-1 mb-3 bg-light rounded">
@@ -175,13 +175,14 @@
                             </div>
                         </form>
                     </div>
-
                     <div class="p-1">
                         <h4 class="text-center">Themen</h4>
                         <hr/>
                         <ul class="list-group">
                             {% for thema in themen %}
-                                <a href="#">
+                                <a href="{{ path('app_artikel_list', {
+                                    t: thema.id
+                                }) }}">
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
                                             <div class="fw-bold link-main overflow-hidden">{{ thema.titel }}</div>
@@ -193,13 +194,9 @@
                         </ul>
                     </div>
                 </div>
-
             </div><!-- /.row -->
-
-//
         {% endblock %}
         </main><!-- /.container -->
-
         <footer class="footer container bg-green text-light my-3" {{ stimulus_controller('tanker') }}>
             <div class="row mb-3">
                 <div class="col-sm-12 col-md-6 col-lg-4 p-2">
@@ -223,9 +220,7 @@
                     <p class="ms-3 mb-2">Datenschutz</p>
                 </div>
             </div>
-
         </footer>
-
     {% endblock %}
     </body>
 </html>

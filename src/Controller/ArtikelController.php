@@ -27,7 +27,8 @@ class ArtikelController extends AbstractController
     public function list( Request $request, PaginatorInterface $paginator, ArticelRepository $repository): Response
     {
         $searchTerm = $request->query->get('q');
-        $querybuilder = $repository->listQueryBuilder($searchTerm);
+        $thema = $request->query->get('t');
+        $querybuilder = $repository->listQueryBuilder($searchTerm, $thema);
 
         $pagination = $paginator->paginate(
             $querybuilder,

@@ -1,0 +1,7 @@
+<tr id="mitwirkung{{ mitwirkung.id }}" data-id="{{ mitwirkung.id }}">
+    <td>{{ mitwirkung.person.vorname }} {{ mitwirkung.person.name }}</td>
+    <td>{{ mitwirkung.art }}</td>
+    <td>
+        {{ include('articel/admin/_delete_mitwirk_form.html.twig') }}
+    </td>
+</tr>
